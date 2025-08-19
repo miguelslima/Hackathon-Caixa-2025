@@ -38,3 +38,7 @@ export const InfoTitle = styled.Text`
   text-align: center;
   margin-top: 16px;
 `;
+
+export const InfoAccordion = styled.View`
+margin-horizontal: 32px
+` 

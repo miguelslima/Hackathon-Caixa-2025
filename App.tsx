@@ -21,16 +21,10 @@ export default function App() {
   });
 
   useEffect(() => {
-    async function prepare() {
-      await SplashScreen.preventAutoHideAsync();
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
     }
-    prepare();
-  }, []);
-
-  if (fontsLoaded) {
-    setTimeout(SplashScreen.hideAsync, 1500);
-    // SplashScreen.hideAsync();
-  }
+  }, [fontsLoaded]);
 
   if (!fontsLoaded) {
     return null;
@@ -38,7 +32,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style="light" translucent backgroundColor="transparent" />
+      <StatusBar style="light" translucent />
       <GestureHandlerRootView style={{ flex: 1 }}>
         <AuthProvider>
           <Routes />

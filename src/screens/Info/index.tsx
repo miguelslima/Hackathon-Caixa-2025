@@ -15,6 +15,7 @@ import {
   Container,
   Header,
   ImageLogo,
+  InfoAccordion,
   InfoContainer,
   InfoTitle,
   TitleHeader,
@@ -54,14 +55,16 @@ export function Info() {
             nossas opções de empréstimo e financiamento.
           </InfoTitle>
         </InfoContainer>
-        {data.map((item, idx) => (
-          <AccordionItem key={idx} title={item.title} body={item.body} />
-        ))}
-        <Button
-          title="Simule agora"
-          color={COLORS.CAIXA_YELLOW}
-          onPress={handleSimulator}
-        />
+        <InfoAccordion>
+          {data.map((item, idx) => (
+            <AccordionItem key={idx} title={item.title} body={item.body} />
+          ))}
+          <Button
+            title="Simule agora"
+            color={COLORS.CAIXA_YELLOW}
+            onPress={handleSimulator}
+          />
+        </InfoAccordion>
       </ScrollView>
     </Container>
   );
