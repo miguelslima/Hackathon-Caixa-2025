@@ -10,7 +10,6 @@ interface ButtonTextProps {
 }
 
 export const Container = styled(RectButton) <ButtonProps>`
-  /* padding: 16px; */
   margin-top: 12px;
   flex: 1;
   justify-content: center;
@@ -19,6 +18,7 @@ export const Container = styled(RectButton) <ButtonProps>`
   border-radius: 12px;
 
   min-height: 56px;
+  max-height: 64px
 `;
 
 export const Title = styled.Text<ButtonTextProps>`

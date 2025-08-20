@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#005CA9",
-      "resizeMode": "cover",
+      "resizeMode": "contain",
       "mdpi": "./assets/splash.png",
       "hdpi": "./assets/splash@2x.png",
       "xhdpi": "./assets/splash@2x.png",

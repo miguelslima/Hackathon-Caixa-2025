@@ -7,11 +7,13 @@ import { Info } from "@/screens/Info";
 import { ResultSimulator } from "@/screens/ResultSimulator";
 
 import { useTheme } from "styled-components/native";
+import RegisterProductScreen from "@/screens/RegisterProductScreen";
 
 export type RootBottomParamList = {
   Info: undefined;
   Simulador: undefined;
   ResultSimulator: { result: {} };
+  Produtos: undefined
 };
 
 const { Navigator, Screen } = createBottomTabNavigator<RootBottomParamList>();
@@ -30,6 +32,15 @@ export function AppRoutes() {
         }
       }}
     >
+      <Screen
+        name="Produtos"
+        component={RegisterProductScreen}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <Feather name="file-plus" size={size} color={color} />
+          ),
+        }}
+      />
       <Screen
         name="Info"
         component={Info}
