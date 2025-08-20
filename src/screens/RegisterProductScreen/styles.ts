@@ -1,10 +1,11 @@
+import { Input } from "@/components/Input";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
   padding: 20px;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 export const Title = styled.Text`
@@ -15,25 +16,24 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.CAIXA_BLANK};
 `;
 
-export const Input = styled.TextInput`
-  height: 50px;
-  border-color: #ccc;
-  border-width: 1px;
-  border-radius: 8px;
-  padding-horizontal: 15px;
-  margin-bottom: 15px;
-  background-color: ${({ theme }) => theme.COLORS.CAIXA_BLANK};
-`;
 
 export const FormContainer = styled.View`
-  background-color: #FFFFFF;
-  padding: 20px;
-  border-radius: 12px;
-  shadow-color: #000;
-  shadow-offset: 0px 2px;
-  shadow-opacity: 0.1;
-  shadow-radius: 4px;
-  elevation: 10;
+  flex:1;
+  gap: 16px;
 
+  justify-content: center;
   margin-block: 24px
+`;
+
+export const ErrorMessage = styled.Text`
+  color: ${({ theme }) => theme.COLORS.danger_standard};
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+`;
+
+export const StyledInput = styled(Input)`
+  border-width: 1px;
+  border-color: ${({ isInvalid }) => (isInvalid ? '#ff0000' : '#E0E0E0')};
 `;

@@ -1,7 +1,7 @@
 {
   "produtos": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Empréstimo Pessoal CAIXA",
       "taxaJurosAnual": 16.68,
       "prazoMaximoMeses": 24,
@@ -9,15 +9,15 @@
       "valorMaximo": 50000
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "Crédito Consignado",
-      "taxaJurosAnual": 12.50,
+      "taxaJurosAnual": 12.5,
       "prazoMaximoMeses": 84,
       "valorMinimo": 1000,
       "valorMaximo": 80000
     },
     {
-      "id": 3,
+      "id": "3",
       "nome": "Financiamento Veículos",
       "taxaJurosAnual": 9.99,
       "prazoMaximoMeses": 60,
@@ -25,72 +25,96 @@
       "valorMaximo": 150000
     },
     {
-      "id": 4,
+      "id": "4",
       "nome": "Crédito Imobiliário",
-      "taxaJurosAnual": 7.50,
+      "taxaJurosAnual": 7.5,
       "prazoMaximoMeses": 360,
       "valorMinimo": 50000,
       "valorMaximo": 1000000
     },
     {
-      "id": 5,
+      "id": "5",
       "nome": "Capital de Giro",
-      "taxaJurosAnual": 18.00,
+      "taxaJurosAnual": 18,
       "prazoMaximoMeses": 12,
       "valorMinimo": 1000,
       "valorMaximo": 100000
+    },
+    {
+      "id": "9d8d",
+      "nome": "Testando Cadastro",
+      "taxaJurosAnual": 12.5,
+      "prazoMaximoMeses": 72,
+      "valorMinimo": 2000,
+      "valorMaximo": 15000
+    },
+    {
+      "id": "d2e4",
+      "nome": "a",
+      "taxaJurosAnual": 12,
+      "prazoMaximoMeses": 123,
+      "valorMinimo": 123,
+      "valorMaximo": 122333
+    },
+    {
+      "id": "ae8c",
+      "nome": "Tested Toast",
+      "taxaJurosAnual": 12,
+      "prazoMaximoMeses": 48,
+      "valorMinimo": 25000,
+      "valorMaximo": 50000
     }
   ],
   "simulacoes": [
     {
-      "id": 1,
+      "id": "1",
       "tipo": "SAC",
       "produto": "Empréstimo Pessoal CAIXA",
       "valorDesejado": 10000,
       "prazo": 12,
       "taxaJurosMensal": 1.39,
       "valorTotal": 11178,
-      "valorParcela": 931.50,
+      "valorParcela": 931.5,
       "parcelas": [
         {
           "numero": 1,
           "valorAmortizacao": 791.72,
           "valorJuros": 139.78,
-          "valorPrestacao": 931.50,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 9208.28
         },
         {
           "numero": 2,
           "valorAmortizacao": 802.76,
           "valorJuros": 128.74,
-          "valorPrestacao": 931.50,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 8405.52
         },
         {
           "numero": 3,
-          "valorAmortizacao": 814.00,
-          "valorJuros": 117.50,
-          "valorPrestacao": 931.50,
+          "valorAmortizacao": 814,
+          "valorJuros": 117.5,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 7591.52
         },
         {
           "numero": 4,
           "valorAmortizacao": 825.45,
           "valorJuros": 106.05,
-          "valorPrestacao": 931.50,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 6766.07
         },
         {
           "numero": 5,
           "valorAmortizacao": 837.12,
           "valorJuros": 94.38,
-          "valorPrestacao": 931.50,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 5928.95
         }
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "tipo": "SAC",
       "produto": "Crédito Consignado",
       "valorDesejado": 15000,
@@ -101,43 +125,43 @@
       "parcelas": [
         {
           "numero": 1,
-          "valorAmortizacao": 625.00,
-          "valorJuros": 156.00,
-          "valorPrestacao": 781.00,
-          "saldoDevedor": 14375.00
+          "valorAmortizacao": 625,
+          "valorJuros": 156,
+          "valorPrestacao": 781,
+          "saldoDevedor": 14375
         },
         {
           "numero": 2,
-          "valorAmortizacao": 625.00,
-          "valorJuros": 149.50,
-          "valorPrestacao": 774.50,
-          "saldoDevedor": 13750.00
+          "valorAmortizacao": 625,
+          "valorJuros": 149.5,
+          "valorPrestacao": 774.5,
+          "saldoDevedor": 13750
         },
         {
           "numero": 3,
-          "valorAmortizacao": 625.00,
-          "valorJuros": 143.00,
-          "valorPrestacao": 768.00,
-          "saldoDevedor": 13125.00
+          "valorAmortizacao": 625,
+          "valorJuros": 143,
+          "valorPrestacao": 768,
+          "saldoDevedor": 13125
         },
         {
           "numero": 4,
-          "valorAmortizacao": 625.00,
-          "valorJuros": 136.50,
-          "valorPrestacao": 761.50,
-          "saldoDevedor": 12500.00
+          "valorAmortizacao": 625,
+          "valorJuros": 136.5,
+          "valorPrestacao": 761.5,
+          "saldoDevedor": 12500
         },
         {
           "numero": 5,
-          "valorAmortizacao": 625.00,
-          "valorJuros": 130.00,
-          "valorPrestacao": 755.00,
-          "saldoDevedor": 11875.00
+          "valorAmortizacao": 625,
+          "valorJuros": 130,
+          "valorPrestacao": 755,
+          "saldoDevedor": 11875
         }
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "tipo": "SAC",
       "produto": "Financiamento Veículos",
       "valorDesejado": 50000,
@@ -149,7 +173,7 @@
         {
           "numero": 1,
           "valorAmortizacao": 1041.67,
-          "valorJuros": 415.00,
+          "valorJuros": 415,
           "valorPrestacao": 1456.67,
           "saldoDevedor": 48958.33
         },
@@ -163,9 +187,9 @@
         {
           "numero": 3,
           "valorAmortizacao": 1041.67,
-          "valorJuros": 397.50,
+          "valorJuros": 397.5,
           "valorPrestacao": 1439.17,
-          "saldoDevedor": 46875.00
+          "saldoDevedor": 46875
         },
         {
           "numero": 4,
@@ -177,61 +201,61 @@
         {
           "numero": 5,
           "valorAmortizacao": 1041.67,
-          "valorJuros": 380.00,
+          "valorJuros": 380,
           "valorPrestacao": 1421.67,
           "saldoDevedor": 44791.66
         }
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "tipo": "SAC",
       "produto": "Capital de Giro",
       "valorDesejado": 8000,
       "prazo": 6,
-      "taxaJurosMensal": 1.50,
+      "taxaJurosMensal": 1.5,
       "valorTotal": 8720,
       "valorParcela": 1453.33,
       "parcelas": [
         {
           "numero": 1,
           "valorAmortizacao": 1333.33,
-          "valorJuros": 120.00,
+          "valorJuros": 120,
           "valorPrestacao": 1453.33,
           "saldoDevedor": 6666.67
         },
         {
           "numero": 2,
           "valorAmortizacao": 1333.33,
-          "valorJuros": 100.00,
+          "valorJuros": 100,
           "valorPrestacao": 1433.33,
           "saldoDevedor": 5333.34
         },
         {
           "numero": 3,
           "valorAmortizacao": 1333.33,
-          "valorJuros": 80.00,
+          "valorJuros": 80,
           "valorPrestacao": 1413.33,
           "saldoDevedor": 4000.01
         },
         {
           "numero": 4,
           "valorAmortizacao": 1333.33,
-          "valorJuros": 60.00,
+          "valorJuros": 60,
           "valorPrestacao": 1393.33,
           "saldoDevedor": 2666.68
         },
         {
           "numero": 5,
           "valorAmortizacao": 1333.33,
-          "valorJuros": 40.00,
+          "valorJuros": 40,
           "valorPrestacao": 1373.33,
           "saldoDevedor": 1333.35
         }
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "tipo": "SAC",
       "produto": "Crédito Imobiliário",
       "valorDesejado": 200000,
@@ -243,7 +267,7 @@
         {
           "numero": 1,
           "valorAmortizacao": 1111.11,
-          "valorJuros": 1260.00,
+          "valorJuros": 1260,
           "valorPrestacao": 2371.11,
           "saldoDevedor": 198888.89
         },
@@ -264,7 +288,7 @@
         {
           "numero": 4,
           "valorAmortizacao": 1111.11,
-          "valorJuros": 1240.00,
+          "valorJuros": 1240,
           "valorPrestacao": 2351.11,
           "saldoDevedor": 195555.56
         },
@@ -278,54 +302,54 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "tipo": "PRICE",
       "produto": "Empréstimo Pessoal CAIXA",
       "valorDesejado": 10000,
       "prazo": 12,
       "taxaJurosMensal": 1.39,
       "valorTotal": 11178,
-      "valorParcela": 931.50,
+      "valorParcela": 931.5,
       "parcelas": [
         {
           "numero": 1,
-          "valorAmortizacao": 792.40,
-          "valorJuros": 139.10,
-          "valorPrestacao": 931.50,
-          "saldoDevedor": 9207.60
+          "valorAmortizacao": 792.4,
+          "valorJuros": 139.1,
+          "valorPrestacao": 931.5,
+          "saldoDevedor": 9207.6
         },
         {
           "numero": 2,
           "valorAmortizacao": 803.41,
           "valorJuros": 128.09,
-          "valorPrestacao": 931.50,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 8404.19
         },
         {
           "numero": 3,
           "valorAmortizacao": 814.56,
           "valorJuros": 116.94,
-          "valorPrestacao": 931.50,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 7589.63
         },
         {
           "numero": 4,
           "valorAmortizacao": 825.87,
           "valorJuros": 105.63,
-          "valorPrestacao": 931.50,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 6763.76
         },
         {
           "numero": 5,
           "valorAmortizacao": 837.33,
           "valorJuros": 94.17,
-          "valorPrestacao": 931.50,
+          "valorPrestacao": 931.5,
           "saldoDevedor": 5926.43
         }
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "tipo": "PRICE",
       "produto": "Crédito Consignado",
       "valorDesejado": 15000,
@@ -337,7 +361,7 @@
         {
           "numero": 1,
           "valorAmortizacao": 547.13,
-          "valorJuros": 156.00,
+          "valorJuros": 156,
           "valorPrestacao": 703.13,
           "saldoDevedor": 14452.87
         },
@@ -360,7 +384,7 @@
           "valorAmortizacao": 564.38,
           "valorJuros": 138.75,
           "valorPrestacao": 703.13,
-          "saldoDevedor": 12777.10
+          "saldoDevedor": 12777.1
         },
         {
           "numero": 5,
@@ -372,7 +396,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "tipo": "PRICE",
       "produto": "Financiamento Veículos",
       "valorDesejado": 50000,
@@ -384,7 +408,7 @@
         {
           "numero": 1,
           "valorAmortizacao": 797.54,
-          "valorJuros": 415.00,
+          "valorJuros": 415,
           "valorPrestacao": 1212.54,
           "saldoDevedor": 49202.46
         },
@@ -393,12 +417,12 @@
           "valorAmortizacao": 804.16,
           "valorJuros": 408.38,
           "valorPrestacao": 1212.54,
-          "saldoDevedor": 48398.30
+          "saldoDevedor": 48398.3
         },
         {
           "numero": 3,
           "valorAmortizacao": 810.84,
-          "valorJuros": 401.70,
+          "valorJuros": 401.7,
           "valorPrestacao": 1212.54,
           "saldoDevedor": 47587.46
         },
@@ -419,54 +443,54 @@
       ]
     },
     {
-      "id": 9,
+      "id": "9",
       "tipo": "PRICE",
       "produto": "Capital de Giro",
       "valorDesejado": 8000,
       "prazo": 6,
-      "taxaJurosMensal": 1.50,
+      "taxaJurosMensal": 1.5,
       "valorTotal": 8720,
       "valorParcela": 1453.33,
       "parcelas": [
         {
           "numero": 1,
           "valorAmortizacao": 1333.33,
-          "valorJuros": 120.00,
+          "valorJuros": 120,
           "valorPrestacao": 1453.33,
           "saldoDevedor": 6666.67
         },
         {
           "numero": 2,
           "valorAmortizacao": 1353.33,
-          "valorJuros": 100.00,
+          "valorJuros": 100,
           "valorPrestacao": 1453.33,
           "saldoDevedor": 5313.34
         },
         {
           "numero": 3,
           "valorAmortizacao": 1373.33,
-          "valorJuros": 80.00,
+          "valorJuros": 80,
           "valorPrestacao": 1453.33,
           "saldoDevedor": 3940.01
         },
         {
           "numero": 4,
           "valorAmortizacao": 1393.33,
-          "valorJuros": 60.00,
+          "valorJuros": 60,
           "valorPrestacao": 1453.33,
           "saldoDevedor": 2546.68
         },
         {
           "numero": 5,
           "valorAmortizacao": 1413.33,
-          "valorJuros": 40.00,
+          "valorJuros": 40,
           "valorPrestacao": 1453.33,
           "saldoDevedor": 1133.35
         }
       ]
     },
     {
-      "id": 10,
+      "id": "10",
       "tipo": "PRICE",
       "produto": "Crédito Imobiliário",
       "valorDesejado": 200000,
@@ -478,7 +502,7 @@
         {
           "numero": 1,
           "valorAmortizacao": 201.11,
-          "valorJuros": 1260.00,
+          "valorJuros": 1260,
           "valorPrestacao": 1461.11,
           "saldoDevedor": 199798.89
         },

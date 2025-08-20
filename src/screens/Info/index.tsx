@@ -11,11 +11,9 @@ import iconeLogo from "@/assets/icone-logo.png";
 import data from "../../../typeLoan";
 
 import {
-
   Container,
   Header,
   ImageLogo,
-  InfoAccordion,
   InfoContainer,
   InfoTitle,
   TitleHeader,
@@ -43,7 +41,7 @@ export function Info() {
 
   return (
     <Container>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Header>
           <ImageLogo source={iconeLogo} />
           <TitleHeader>Crédito CAIXA</TitleHeader>
@@ -58,12 +56,12 @@ export function Info() {
         {data.map((item, idx) => (
           <AccordionItem key={idx} title={item.title} body={item.body} />
         ))}
-        <Button
-          title="Simule agora"
-          color={COLORS.CAIXA_YELLOW}
-          onPress={handleSimulator}
-        />
       </ScrollView>
+      <Button
+        title="Simule agora"
+        color={COLORS.CAIXA_YELLOW}
+        onPress={handleSimulator}
+      />
     </Container>
   );
 }

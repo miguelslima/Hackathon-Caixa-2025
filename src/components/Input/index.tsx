@@ -6,8 +6,9 @@ import { TextInputProps } from "react-native";
 import { Container, IconContainer, InputText } from "./styles";
 
 interface InputProps extends TextInputProps {
-  iconName: React.ComponentProps<typeof Feather>["name"];
+  iconName?: React.ComponentProps<typeof Feather>["name"];
   value?: string;
+  isInvalid?: boolean;
 }
 
 export function Input({ iconName, value, ...rest }: InputProps) {

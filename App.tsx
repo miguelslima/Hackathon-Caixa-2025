@@ -14,6 +14,7 @@ import theme from "./src/theme";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View } from "react-native";
+import Toast from "react-native-toast-message";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -45,6 +46,7 @@ export default function App() {
           <SafeAreaView style={{ flex: 1 }}>
             <AuthProvider>
               <Routes />
+              <Toast />
             </AuthProvider>
           </SafeAreaView>
         </View>

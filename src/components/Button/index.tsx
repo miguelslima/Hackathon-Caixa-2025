@@ -2,7 +2,6 @@ import { ActivityIndicator } from "react-native";
 import { useTheme } from "styled-components";
 import {
   RectButtonProps,
-  GestureHandlerRootView,
 } from "react-native-gesture-handler";
 
 import { Container, Title } from "./styles";
@@ -25,19 +24,17 @@ export function Button({
   const theme = useTheme();
 
   return (
-    <GestureHandlerRootView>
-      <Container
-        onPress={onPress}
-        enabled={enabled}
-        color={color ? color : theme.COLORS.CAIXA_YELLOW}
-        style={{ opacity: enabled === false || loading === true ? 0.5 : 1 }}
-      >
-        {loading ? (
-          <ActivityIndicator color={theme.COLORS.CAIXA_BLUE} />
-        ) : (
-          <Title light={light}>{title}</Title>
-        )}
-      </Container>
-    </GestureHandlerRootView>
+    <Container
+      onPress={onPress}
+      enabled={enabled}
+      color={color ? color : theme.COLORS.CAIXA_YELLOW}
+      style={{ opacity: enabled === false || loading === true ? 0.5 : 1 }}
+    >
+      {loading ? (
+        <ActivityIndicator color={theme.COLORS.CAIXA_BLUE} />
+      ) : (
+        <Title light={light}>{title}</Title>
+      )}
+    </Container>
   );
 }

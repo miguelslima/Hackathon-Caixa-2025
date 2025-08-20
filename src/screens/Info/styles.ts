@@ -30,12 +30,13 @@ export const TitleHeader = styled.Text`
 
 export const InfoContainer = styled.View`
   margin-block: 32px;
+
 `;
 
 export const InfoTitle = styled.Text`
   font-size: 20px;
   color: #fff;
-  text-align: center;
+  text-align: justify;
   margin-top: 16px;
 `;
 
