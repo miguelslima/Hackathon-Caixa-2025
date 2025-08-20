@@ -1,7 +1,6 @@
-import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import styled from "styled-components/native";
 import { MaskedTextInput } from "react-native-mask-text";
-import { RFValue } from "react-native-responsive-fontsize";
+
 import { TextInput } from "react-native-gesture-handler";
 
 export const Container = styled.ScrollView`
@@ -12,7 +11,7 @@ export const Container = styled.ScrollView`
 
 export const Header = styled.View`
   flex-direction: row;
-  margin-top: ${getStatusBarHeight() + 18}px;
+  margin-top: 18px;
   align-items: center;
 `;
 
@@ -57,14 +56,14 @@ export const SimulatorTitle = styled.Text`
 
 export const InputTextCurrency = styled(MaskedTextInput)`
   width: 100%;
-  height: 55px;
+  height: 56px;
 
   background-color: ${({ theme }) => theme.COLORS.background_secondary};
   color: ${({ theme }) => theme.COLORS.azul_cx_standard};
   font-family: ${({ theme }) => theme.FONTS.TEXT};
-  font-size: ${RFValue(15)}px;
+  font-size: 16px;
 
-  padding: 0 23px;
+  padding: 0 24px;
   margin-bottom: 30px;
 `;
 
@@ -74,10 +73,10 @@ export const InputText = styled(TextInput).attrs(({ theme }) => ({
   background-color: ${({ theme }) => theme.COLORS.background_secondary};
   color: ${({ theme }) => theme.COLORS.azul_cx_standard};
   font-family: ${({ theme }) => theme.FONTS.TEXT};
-  font-size: ${RFValue(15)}px;
+  font-size: 16px;
 
-  padding: 10px 16px;
+  padding: 24px;
   margin-vertical: 10px;
 
-  border-radius: 10px;
+  border-radius: 12px;
 `;

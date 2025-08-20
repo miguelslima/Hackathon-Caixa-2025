@@ -1,20 +1,16 @@
-import {
-  getBottomSpace,
-  getStatusBarHeight,
-} from "react-native-iphone-x-helper";
-import { RFValue } from "react-native-responsive-fontsize";
+
 import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
-  justify-content: space-between;
-  padding: 32px;
+
+  padding: 32px
 `;
 
 export const Header = styled.View`
   flex-direction: row;
-  margin-top: ${getStatusBarHeight() + 18}px;
+  margin-top: 16px;
   align-items: center;
   justify-content: center;
 `;
@@ -31,15 +27,32 @@ export const TitleHeader = styled.Text`
   text-align: center;
 `;
 
+export const FormContainer = styled.View`
+  width: 100%;
+  gap: 16px;
+`;
+
+export const Content = styled.View`
+  flex: 1;
+  justify-content: center;
+`;
+
 export const SimulatorContainer = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
-  justify-content: center;
-  align-items: center;
 `;
 
 export const SimulatorTitle = styled.Text`
   color: #fff;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
+  text-align: center;
+`;
+
+export const Footer = styled.View`
+  padding: 24px;
+  padding-bottom: 48px; 
+  background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
+  border-top-width: 1px;
+  border-top-color: rgba(255, 255, 255, 0.2);
 `;

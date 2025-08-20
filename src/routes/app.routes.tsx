@@ -22,9 +22,12 @@ export function AppRoutes() {
   return (
     <Navigator
       screenOptions={{
-        tabBarActiveTintColor: COLORS.CAIXA_BLUE,
-        tabBarInactiveTintColor: COLORS.CAIXA_YELLOW,
+        tabBarActiveTintColor: COLORS.CAIXA_YELLOW,
+        tabBarInactiveTintColor: COLORS.CAIXA_BLANK,
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: COLORS.CAIXA_BLUE,
+        }
       }}
     >
       <Screen
@@ -51,6 +54,8 @@ export function AppRoutes() {
         component={ResultSimulator}
         options={{
           tabBarButton: () => null,
+          tabBarItemStyle: { display: "none" },
+          tabBarStyle: { display: "none" },
         }}
       />
     </Navigator>

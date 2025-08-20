@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Platform, UIManager } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -55,16 +55,14 @@ export function Info() {
             nossas opções de empréstimo e financiamento.
           </InfoTitle>
         </InfoContainer>
-        <InfoAccordion>
-          {data.map((item, idx) => (
-            <AccordionItem key={idx} title={item.title} body={item.body} />
-          ))}
-          <Button
-            title="Simule agora"
-            color={COLORS.CAIXA_YELLOW}
-            onPress={handleSimulator}
-          />
-        </InfoAccordion>
+        {data.map((item, idx) => (
+          <AccordionItem key={idx} title={item.title} body={item.body} />
+        ))}
+        <Button
+          title="Simule agora"
+          color={COLORS.CAIXA_YELLOW}
+          onPress={handleSimulator}
+        />
       </ScrollView>
     </Container>
   );

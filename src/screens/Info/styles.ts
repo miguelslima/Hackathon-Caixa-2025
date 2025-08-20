@@ -1,14 +1,17 @@
-import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import styled from "styled-components/native";
+import { LinearGradient } from 'expo-linear-gradient';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
+
+  padding: 32px;
+
 `;
 
 export const Header = styled.View`
   flex-direction: row;
-  margin-top: ${getStatusBarHeight() + 18}px;
+  margin-top: 18px;
   align-items: center;
 `;
 
@@ -21,15 +24,12 @@ export const ImageLogo = styled.Image`
 export const TitleHeader = styled.Text`
   width: 250px;
   color: #fff;
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
 `;
 
 export const InfoContainer = styled.View`
-  flex-direction: row;
-  /* justify-content: center; */
-  align-items: center;
-  padding: 16px;
+  margin-block: 32px;
 `;
 
 export const InfoTitle = styled.Text`
@@ -39,6 +39,3 @@ export const InfoTitle = styled.Text`
   margin-top: 16px;
 `;
 
-export const InfoAccordion = styled.View`
-margin-horizontal: 32px
-` 

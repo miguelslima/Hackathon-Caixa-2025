@@ -3,10 +3,10 @@ export default {
     background_primary: "#F4F5F6",
     background_secondary: "#FFFFFF",
 
-    azul_cx_standard: "#005ca9",
+    azul_cx_standard: "#005CA9",
     laranja_cx_standard: "#F39200",
-    turquesa_standard: "#54BBAB",
-    cinza_standard: "#d0e0e3",
+    turquesa_standard: "#54BBAA",
+    cinza_standard: "#D0E0E3",
 
     info_standard: "#143DA6",
     danger_standard: "#900000",
@@ -15,7 +15,7 @@ export default {
 
     CAIXA_BLUE: "#005CA9",
     CAIXA_YELLOW: "#f79400",
-    CAIXA_BLANK: "#F6F9F9",
+    CAIXA_BLANK: "#FFFFFF",
   },
 
   FONTS: {

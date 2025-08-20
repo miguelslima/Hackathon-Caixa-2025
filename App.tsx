@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-// import "intl";
-// import "intl/locale-data/jsonp/pt-BR";
+import { useEffect } from "react";
+
 import * as SplashScreen from "expo-splash-screen";
 
 import { StatusBar } from "expo-status-bar";
@@ -13,6 +12,8 @@ import { AuthProvider } from "./src/hooks/auth";
 
 import theme from "./src/theme";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { View } from "react-native";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,9 +22,15 @@ export default function App() {
   });
 
   useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
+    async function hideSplashScreen() {
+      if (fontsLoaded) {
+
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        await SplashScreen.hideAsync();
+      }
     }
+
+    hideSplashScreen();
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
@@ -32,11 +39,15 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style="light" translucent />
+      <StatusBar style="auto" translucent />
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <AuthProvider>
-          <Routes />
-        </AuthProvider>
+        <View style={{ flex: 1, backgroundColor: "#005CA9" }}>
+          <SafeAreaView style={{ flex: 1 }}>
+            <AuthProvider>
+              <Routes />
+            </AuthProvider>
+          </SafeAreaView>
+        </View>
       </GestureHandlerRootView>
     </ThemeProvider>
   );

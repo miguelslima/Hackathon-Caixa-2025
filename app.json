@@ -9,23 +9,36 @@
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#005CA9"
+      "backgroundColor": "#005CA9",
+      "resizeMode": "cover",
+      "mdpi": "./assets/splash.png",
+      "hdpi": "./assets/splash@2x.png",
+      "xhdpi": "./assets/splash@2x.png",
+      "xxhdpi": "./assets/splash@3x.png",
+      "xxxhdpi": "./assets/splash@3x.png"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#005CA9"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.gnomolouco.hackthon"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "ce739012-7a3e-47ba-82a6-de348456ae5b"
+      }
+    },
+    "owner": "gnomolouco"
   }
 }
