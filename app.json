@@ -8,9 +8,9 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash.png",
-      "backgroundColor": "#005CA9",
-      "resizeMode": "cover"
+      "image": "./assets/logoCaixa.png",
+      "backgroundColor": "#54BBAA",
+      "resizeMode": "contain"
     },
     "ios": {
       "supportsTablet": true

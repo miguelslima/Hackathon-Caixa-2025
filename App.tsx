@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { View } from "react-native";
 
 import * as SplashScreen from "expo-splash-screen";
@@ -19,27 +19,34 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false);
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_700Bold,
   });
 
   useEffect(() => {
-    async function prepareApp() {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+    async function prepare() {
+      try {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
+      }
     }
 
-    prepareApp();
+    prepare();
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
+    if (appIsReady && fontsLoaded) {
       await SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
+  }, [appIsReady, fontsLoaded]);
 
 
-  if (!fontsLoaded) {
+  if (!appIsReady || !fontsLoaded) {
     return null;
   }
 
