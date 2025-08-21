@@ -11,12 +11,12 @@ export const Header = styled.View`
   align-items: center;
   justify-content: center;
 
-  margin-bottom: 24px
+  margin-block: 24px
 `;
 
 export const ImageLogo = styled.Image`
-  width: 80px;
-  height: 60px;
+  width: 100px;
+  height: 80px;
 `;
 
 
@@ -28,14 +28,14 @@ export const Title = styled.Text`
 
 export const ProductItemContainer = styled.View`
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLANK};
-  padding: 15px;
+  padding: 16px;
   border-radius: 12px;
   margin-bottom: 10px;
   shadow-color: #000;
   shadow-offset: 0px 2px;
   shadow-opacity: 0.1;
   shadow-radius: 4px;
-  elevation: 3;
+  elevation: 5;
 `;
 
 export const ProductName = styled.Text`
@@ -45,7 +45,7 @@ export const ProductName = styled.Text`
 `;
 
 export const ProductDetails = styled.Text`
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
   margin-top: 5px;
 `;

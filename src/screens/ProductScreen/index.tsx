@@ -4,6 +4,7 @@ import {
   ActivityIndicator,
   FlatList,
   View,
+  Text,
 } from 'react-native';
 import axios from 'axios';
 import { Container, FlatListContainer, Header, ImageLogo, ProductDetails, ProductItemContainer, ProductName, Title } from './styles';
@@ -15,10 +16,9 @@ import { api } from '@/services/api';
 interface Product {
   id: number;
   nome: string;
-  taxaJurosAnual: number;
+  taxaJurosAnual: number | string;
+  taxaMensal: number | string;
   prazoMaximoMeses: number;
-  valorMinimo: number;
-  valorMaximo: number;
 }
 
 export default function ProductsScreen({ navigation }) {
@@ -29,8 +29,6 @@ export default function ProductsScreen({ navigation }) {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
     }).format(value);
   };
 
@@ -59,10 +57,18 @@ export default function ProductsScreen({ navigation }) {
   const renderProductItem = ({ item }: { item: Product }) => (
     <ProductItemContainer>
       <ProductName>{item.nome}</ProductName>
-      <ProductDetails>Taxa Anual: {item.taxaJurosAnual}%</ProductDetails>
-      <ProductDetails>Prazo Máximo: {item.prazoMaximoMeses} meses</ProductDetails>
-      <ProductDetails>Valor Mínimo: {formatCurrency(item.valorMinimo)}</ProductDetails>
-      <ProductDetails>Valor Máximo: {formatCurrency(item.valorMaximo)}</ProductDetails>
+      <ProductDetails>
+        <Text style={{ fontWeight: 'bold' }}>Taxa Anual: </Text>
+        {`${item.taxaJurosAnual === 'Variável' ? item.taxaJurosAnual : `${item.taxaJurosAnual}%`}`}
+      </ProductDetails>
+      <ProductDetails>
+        <Text style={{ fontWeight: 'bold' }}>Taxa Mensal: </Text>
+        {`${item.taxaMensal === 'Variável' ? item.taxaMensal : `${item.taxaMensal}%`}`}
+      </ProductDetails>
+      <ProductDetails>
+        <Text style={{ fontWeight: 'bold' }}>Prazo Máximo: </Text>
+        {item.prazoMaximoMeses} meses
+      </ProductDetails>
     </ProductItemContainer>
   );
 
@@ -72,7 +78,6 @@ export default function ProductsScreen({ navigation }) {
         <ImageLogo source={iconeLogo} />
         <Title>Produtos</Title>
       </Header>
-
 
       <FlatListContainer>
         {isLoading ? (

@@ -10,7 +10,7 @@ export const AccordionContainer = styled.View`
 `;
 
 export const AccordionHeader = styled.TouchableOpacity`
-  padding: 15px;
+  padding: 16px;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLANK}; 
   flex-direction: row;
   justify-content: space-between;
@@ -29,7 +29,7 @@ export const AccordionBody = styled.View`
 `;
 
 export const BodyText = styled.Text`
-  padding: 15px;
+  padding: 16px;
   padding-top: 8px;
   color: #000;
   background-color: #fff; 

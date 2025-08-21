@@ -82,7 +82,7 @@ export const AmortizationContainer = styled.View`
 
 export const AmortizationButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.CAIXA_YELLOW};
-  padding: 15px;
+  padding: 16px;
   border-radius: 8px;
   width: 45%;
   align-items: center;
