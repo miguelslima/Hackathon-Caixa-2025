@@ -37,7 +37,7 @@ export default function ProductsScreen({ navigation }) {
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
-      const response = await api.get('/produtos');
+      const response = await axios.get('/produtos');
       setProducts(response.data);
     } catch (error) {
       console.error(error);

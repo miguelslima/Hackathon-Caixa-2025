@@ -93,10 +93,12 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Rota não encontrada
   res.writeHead(404);
   res.end(JSON.stringify({ message: 'Not Found' }));
 });
 
+// Exporta o servidor para a Vercel
 module.exports = (req, res) => {
   server.emit('request', req, res);
 };
