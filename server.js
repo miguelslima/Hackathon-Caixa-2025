@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*'); // Permite requisições de qualquer origem
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With'); // Adicionando X-Requested-With para compatibilidade
 
   // Tratar requisições OPTIONS (pré-voo CORS)
   if (method === 'OPTIONS') {
