@@ -10,6 +10,7 @@ import { Container, FlatListContainer, Header, ImageLogo, ProductDetails, Produc
 import { Button } from '@/components/Button';
 
 import iconeLogo from "../../assets/icone-logo.png";
+import { api } from '@/services/api';
 
 interface Product {
   id: number;
@@ -36,7 +37,7 @@ export default function ProductsScreen({ navigation }) {
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('http://192.168.0.100:3001/produtos');
+      const response = await api.get('/produtos');
       setProducts(response.data);
     } catch (error) {
       console.error(error);

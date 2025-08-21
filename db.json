@@ -39,30 +39,6 @@
       "prazoMaximoMeses": 12,
       "valorMinimo": 1000,
       "valorMaximo": 100000
-    },
-    {
-      "id": "9d8d",
-      "nome": "Testando Cadastro",
-      "taxaJurosAnual": 12.5,
-      "prazoMaximoMeses": 72,
-      "valorMinimo": 2000,
-      "valorMaximo": 15000
-    },
-    {
-      "id": "d2e4",
-      "nome": "a",
-      "taxaJurosAnual": 12,
-      "prazoMaximoMeses": 123,
-      "valorMinimo": 123,
-      "valorMaximo": 122333
-    },
-    {
-      "id": "ae8c",
-      "nome": "Tested Toast",
-      "taxaJurosAnual": 12,
-      "prazoMaximoMeses": 48,
-      "valorMinimo": 25000,
-      "valorMaximo": 50000
     }
   ],
   "simulacoes": [
