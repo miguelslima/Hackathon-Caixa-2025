@@ -30,6 +30,7 @@ import Toast from "react-native-toast-message";
 import { Picker } from "@react-native-picker/picker";
 
 import MaskInput from 'react-native-mask-input';
+import { api } from "@/services/api";
 
 interface Product {
   id: number;
@@ -102,7 +103,7 @@ export function Simulador() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://192.168.0.100:3001/produtos');
+        const response = await api.get('/produtos');
         setProducts(response.data);
       } catch (error) {
         Toast.show({
@@ -131,7 +132,7 @@ export function Simulador() {
         { abortEarly: false }
       );
 
-      const response = await axios.post('http://192.168.0.100:3001/simulacoes', {
+      const response = await api.post('/simulacoes', {
         valorDesejado: parseFloat(simulatorData.amount),
         prazo: parseInt(simulatorData.installments),
         produtoId: simulatorData.product?.id,

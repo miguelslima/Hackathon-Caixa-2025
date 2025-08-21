@@ -15,6 +15,7 @@ import { Button } from '@/components/Button';
 import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 import MaskInput from 'react-native-mask-input';
+import { api } from '@/services/api';
 
 interface ProductData {
   name: string;
@@ -128,7 +129,7 @@ export default function RegisterProductScreen() {
         { abortEarly: false }
       );
 
-      const response = await axios.post('http://192.168.0.100:3001/produtos', {
+      const response = await api.post('/produtos', {
         nome: product.name,
         taxaJurosAnual: parseFloat(product.annualInterestRate),
         prazoMaximoMeses: parseInt(product.maxTerm),

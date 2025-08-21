@@ -82,7 +82,7 @@ const server = http.createServer((req, res) => {
         const newId = db.simulacoes.length > 0 ? Math.max(...db.simulacoes.map(s => s.id)) + 1 : 1;
         const finalSimulation = { id: newId, ...simulationData };
         db.simulacoes.push(finalSimulation);
-        writeDB(db);
+        writeDB(db); // A adição desta linha garante que os dados são salvos
         res.writeHead(201);
         res.end(JSON.stringify(finalSimulation));
       } catch (err) {
