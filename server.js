@@ -6,8 +6,7 @@ const middlewares = jsonServer.defaults();
 server.use(middlewares);
 server.use(router);
 
-server.listen(process.env.PORT, () => {
-  console.log('JSON Server está rodando na Vercel!');
-});
 
-module.exports = server;
+module.exports = (req, res) => {
+  server.handle(req, res);
+};
