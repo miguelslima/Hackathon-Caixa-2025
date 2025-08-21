@@ -25,12 +25,13 @@ import {
   PickerWrapper,
 } from "./styles";
 import { useAuth } from "../../hooks/auth";
-import axios from "axios";
+
 import Toast from "react-native-toast-message";
 import { Picker } from "@react-native-picker/picker";
 
 import MaskInput, { createNumberMask } from 'react-native-mask-input';
 import { api } from "@/services/api";
+import { calculateAmortization } from "@/utils/calculateAmortization";
 
 interface Product {
   id: number;
@@ -68,26 +69,10 @@ const validationSchema = yup.object().shape({
     }),
 });
 
-const formatCurrency = (value: string): string => {
-  const sanitizedValue = value.replace(/[^0-9.]/g, '');
-  const numberValue = parseFloat(sanitizedValue);
-  if (isNaN(numberValue)) {
-    return '';
-  }
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(numberValue);
-};
-
 export function Simulador() {
   const { COLORS } = useTheme();
   const navigation = useNavigation();
   const { user } = useAuth();
-
-  const [amountFormatted, setAmountFormatted] = useState("");
 
   const [simulatorData, setSimulatorData] = useState<SimulatorData>({
     product: null,
@@ -126,20 +111,27 @@ export function Simulador() {
       await validationSchema.validate(
         {
           product: simulatorData.product,
-          amount: parseFloat(simulatorData.amount),
+          amount: parseFloat(simulatorData.amount) / 100,
           installments: parseInt(simulatorData.installments),
         },
         { abortEarly: false }
       );
 
+      const simulationResult = calculateAmortization(
+        parseFloat(simulatorData.amount) / 100,
+        simulatorData.product.taxaJurosAnual,
+        parseInt(simulatorData.installments),
+        simulatorData.product
+      );
+
       const response = await api.post('/simulacoes', {
-        valorDesejado: parseFloat(simulatorData.amount),
+        valorDesejado: parseFloat(simulatorData.amount) / 100,
         prazo: parseInt(simulatorData.installments),
         produtoId: simulatorData.product?.id,
       });
 
       if (response.status === 201) {
-        navigation.navigate("ResultSimulator", { result: response.data });
+        navigation.navigate("ResultSimulator", { result: simulationResult });
         Toast.show({
           type: 'success',
           text1: 'Simulação realizada',
