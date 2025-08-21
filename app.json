@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "hackthon",
+    "name": "Hackathon",
     "slug": "hackthon",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,12 +10,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#005CA9",
-      "resizeMode": "contain",
-      "mdpi": "./assets/splash.png",
-      "hdpi": "./assets/splash@2x.png",
-      "xhdpi": "./assets/splash@2x.png",
-      "xxhdpi": "./assets/splash@3x.png",
-      "xxxhdpi": "./assets/splash@3x.png"
+      "resizeMode": "cover"
     },
     "ios": {
       "supportsTablet": true

@@ -11,7 +11,6 @@ import iconeLogo from "@/assets/icone-logo.png";
 import {
   Container,
   Content,
-  Footer,
   FormContainer,
   Header,
   ImageLogo,
@@ -54,13 +53,11 @@ export function Home() {
             </FormContainer>
           </Content>
 
-          <Footer>
-            <Button
-              title="Continuar"
-              color={COLORS.CAIXA_YELLOW}
-              onPress={() => signIn(name)}
-            />
-          </Footer>
+          <Button
+            title="Continuar"
+            color={COLORS.CAIXA_YELLOW}
+            onPress={() => signIn(name)}
+          />
         </SimulatorContainer>
       </Container>
     </KeyboardAvoidingView>

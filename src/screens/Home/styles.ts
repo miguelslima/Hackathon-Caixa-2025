@@ -49,10 +49,3 @@ export const SimulatorTitle = styled.Text`
   text-align: center;
 `;
 
-export const Footer = styled.View`
-  padding: 24px;
-  padding-bottom: 48px; 
-  background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
-  border-top-width: 1px;
-  border-top-color: rgba(255, 255, 255, 0.2);
-`;
