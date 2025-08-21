@@ -535,6 +535,12 @@
           "saldoDevedor": 198981.71
         }
       ]
+    },
+    {
+      "id": "e311",
+      "valorDesejado": 123456,
+      "prazo": 40,
+      "produtoId": "3"
     }
   ]
 }

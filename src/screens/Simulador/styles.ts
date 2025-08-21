@@ -2,17 +2,21 @@ import styled from "styled-components/native";
 import { MaskedTextInput } from "react-native-mask-text";
 
 import { TextInput } from "react-native-gesture-handler";
+import { Input } from "@/components/Input";
+import { Picker } from "@react-native-picker/picker";
 
-export const Container = styled.ScrollView`
+export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
-  padding: 32px;
+  padding: 24px;
+
 `;
 
 export const Header = styled.View`
   flex-direction: row;
   margin-top: 18px;
   align-items: center;
+  justify-content: center;
 `;
 
 export const ImageLogo = styled.Image`
@@ -36,7 +40,7 @@ export const InfoContainer = styled.View`
 export const InfoTitle = styled.Text`
   font-size: 20px;
   color: #fff;
-  text-align: center;
+  text-align: justify;
   margin-top: 16px;
 `;
 
@@ -52,6 +56,35 @@ export const SimulatorTitle = styled.Text`
   font-size: 20px;
   padding-bottom: 16px;
   margin-top: 16px;
+`;
+
+export const StyledInput = styled(Input)`
+  border-color: ${({ isInvalid }) => (isInvalid ? '#ff0000' : '#E0E0E0')};
+`;
+
+export const ErrorMessage = styled.Text`
+  color: ${({ theme }) => theme.COLORS.danger_standard};
+  font-size: 12px;
+  margin-top: 10px;
+  align-self: flex-start;
+`;
+
+export const PickerWrapper = styled.View`
+  width: 100%;
+  height: 56px;
+  border-width: 1px;
+  border-color: #E0E0E0;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #fff;
+  justify-content: center;
+  overflow: hidden; 
+`;
+
+export const ProductPicker = styled(Picker)`
+  color: #005CA9; 
+  font-weight: bold;
 `;
 
 export const InputTextCurrency = styled(MaskedTextInput)`
@@ -80,3 +113,4 @@ export const InputText = styled(TextInput).attrs(({ theme }) => ({
 
   border-radius: 12px;
 `;
+

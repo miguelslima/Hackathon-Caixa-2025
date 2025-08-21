@@ -8,6 +8,17 @@ export const Container = styled.View`
   justify-content: space-between;
 `;
 
+export const BackButton = styled.TouchableOpacity`
+  flex-direction: row;
+  alignItems: center;
+  gap: 8px;
+`
+
+export const BackButtonTitle = styled.Text`
+ color: #fff; 
+ font-size: 20px;
+`
+
 export const Title = styled.Text`
   font-size: 24px;
   font-weight: bold;

@@ -5,7 +5,7 @@ export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
 
-  padding: 32px;
+  padding: 24px;
 
 `;
 
