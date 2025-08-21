@@ -13,7 +13,7 @@ import { Button } from '@/components/Button';
 import iconeLogo from "../../assets/icone-logo.png";
 import { api } from '@/services/api';
 
-interface Product {
+export interface Product {
   id: number;
   nome: string;
   taxaJurosAnual: number | string;

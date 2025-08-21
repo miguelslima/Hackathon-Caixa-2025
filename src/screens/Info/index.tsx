@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Platform, UIManager } from "react-native";
+import { Alert, Platform, UIManager } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components/native";
@@ -8,7 +8,6 @@ import { Button } from "@/components/Button";
 
 import iconeLogo from "@/assets/icone-logo.png";
 
-import data from "../../../dbCaixa.json";
 
 import {
   Container,
@@ -21,11 +20,26 @@ import {
 import { useAuth } from "../../hooks/auth";
 import { ScrollView } from "react-native-gesture-handler";
 import { AccordionItem } from "@/components/AccordionItem";
+import { api } from "@/services/api";
+
+export interface Product {
+  id: number;
+  nome: string;
+  descricao: string;
+  link: string;
+  taxaJurosAnual: number | string;
+  taxaMensal: number | string;
+  prazoMaximoMeses: number;
+}
+
 
 export function Info() {
   const { COLORS } = useTheme();
   const navigation = useNavigation();
   const { user } = useAuth();
+
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [expandedIndex, setExpandedIndex] = useState(-1);
 
@@ -38,6 +52,28 @@ export function Info() {
     const unsubscribe = navigation.addListener('focus', () => {
       setExpandedIndex(-1);
     });
+    return unsubscribe;
+  }, [navigation]);
+
+  const fetchProducts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await api.get('/produtos');
+
+      setProducts(response.data);
+    } catch (error) {
+      console.error(error);
+      Alert.alert('Erro', 'Não foi possível carregar os produtos.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      fetchProducts();
+    });
+
     return unsubscribe;
   }, [navigation]);
 
@@ -64,7 +100,7 @@ export function Info() {
             nossas opções de empréstimo e financiamento.
           </InfoTitle>
         </InfoContainer>
-        {data.map((item, idx) => (
+        {products.map((item, idx) => (
           <AccordionItem
             key={idx}
             title={item.nome}
