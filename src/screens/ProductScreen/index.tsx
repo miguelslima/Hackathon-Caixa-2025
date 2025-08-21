@@ -38,10 +38,11 @@ export default function ProductsScreen({ navigation }) {
     setIsLoading(true);
     try {
       const response = await api.get('/produtos');
+
       setProducts(response.data);
     } catch (error) {
       console.error(error);
-      Alert.alert('Erro', 'Não foi possível carregar os produtos. Verifique se o JSON-Server está rodando.');
+      Alert.alert('Erro', 'Não foi possível carregar os produtos.');
     } finally {
       setIsLoading(false);
     }
