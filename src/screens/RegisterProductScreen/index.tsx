@@ -14,7 +14,7 @@ import { BackButton, BackButtonTitle, Container, ErrorMessage, FormContainer, St
 import { Button } from '@/components/Button';
 import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
-import MaskInput from 'react-native-mask-input';
+import MaskInput, { createNumberMask } from 'react-native-mask-input';
 import { api } from '@/services/api';
 
 interface ProductData {
@@ -66,26 +66,12 @@ const validationSchema = yup.object().shape({
     ),
 });
 
-
-
-const moneyMask = [
-  'R$',
-  ' ',
-  /\d/,
-  /\d/,
-  /\d/,
-  '.',
-  /\d/,
-  /\d/,
-  /\d/,
-  '.',
-  /\d/,
-  /\d/,
-  /\d/,
-  ',',
-  /\d/,
-  /\d/,
-];
+const moneyMask = createNumberMask({
+  prefix: ['R', '$', ' '],
+  delimiter: '.',
+  separator: ',',
+  precision: 2,
+});
 
 export default function RegisterProductScreen() {
   const { COLORS } = useTheme();

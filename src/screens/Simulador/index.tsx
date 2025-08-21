@@ -29,7 +29,7 @@ import axios from "axios";
 import Toast from "react-native-toast-message";
 import { Picker } from "@react-native-picker/picker";
 
-import MaskInput from 'react-native-mask-input';
+import MaskInput, { createNumberMask } from 'react-native-mask-input';
 import { api } from "@/services/api";
 
 interface Product {
@@ -186,24 +186,12 @@ export function Simulador() {
     setSimulatorData({ ...simulatorData, product: selectedProduct });
   };
 
-  const moneyMask = [
-    'R$',
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    '.',
-    /\d/,
-    /\d/,
-    /\d/,
-    '.',
-    /\d/,
-    /\d/,
-    /\d/,
-    ',',
-    /\d/,
-    /\d/,
-  ];
+  const moneyMask = createNumberMask({
+    prefix: ['R', '$', ' '],
+    delimiter: '.',
+    separator: ',',
+    precision: 2,
+  });
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
