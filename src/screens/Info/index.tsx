@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Platform, UIManager } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -8,7 +8,7 @@ import { Button } from "@/components/Button";
 
 import iconeLogo from "@/assets/icone-logo.png";
 
-import data from "../../../typeLoan";
+import data from "../../../dbCaixa.json";
 
 import {
   Container,
@@ -27,15 +27,26 @@ export function Info() {
   const navigation = useNavigation();
   const { user } = useAuth();
 
+  const [expandedIndex, setExpandedIndex] = useState(-1);
+
   useEffect(() => {
     if (Platform.OS === "android") {
       if (UIManager.setLayoutAnimationEnabledExperimental) {
         UIManager.setLayoutAnimationEnabledExperimental(true);
       }
     }
-  }, []);
+    const unsubscribe = navigation.addListener('focus', () => {
+      setExpandedIndex(-1);
+    });
+    return unsubscribe;
+  }, [navigation]);
 
-  function handleSimulator() {
+  const handleAccordionPress = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? -1 : index);
+  };
+
+
+  const handleSimulator = () => {
     navigation.navigate("Simulador");
   }
 
@@ -54,7 +65,14 @@ export function Info() {
           </InfoTitle>
         </InfoContainer>
         {data.map((item, idx) => (
-          <AccordionItem key={idx} title={item.title} body={item.body} />
+          <AccordionItem
+            key={idx}
+            title={item.nome}
+            body={item.descricao}
+            link={item.link}
+            isExpanded={expandedIndex === idx}
+            onPress={() => handleAccordionPress(idx)}
+          />
         ))}
       </ScrollView>
       <Button
