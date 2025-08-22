@@ -48,8 +48,8 @@ export interface ResultSimulatorDTO {
 
 interface Params {
   result: ResultSimulatorDTO;
+  desiredAmount: number;
 }
-
 
 const calculateSAC = (
   principal: number,
@@ -92,7 +92,7 @@ export function ResultSimulator() {
   const { user } = useAuth();
   const screenWidth = Dimensions.get("window").width;
 
-  const { result } = route.params as Params;
+  const { result, desiredAmount } = route.params as Params;
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedAmortization, setSelectedAmortization] = useState<'PRICE' | 'SAC' | null>(null);
 
@@ -151,6 +151,7 @@ export function ResultSimulator() {
           <SummaryCard>
             <SummaryTitle>Detalhes da Simulação</SummaryTitle>
             <SummaryText><Text style={{ fontWeight: 'bold' }}>Produto: </Text> {result.descricaoProduto}</SummaryText>
+            <SummaryText><Text style={{ fontWeight: 'bold' }}>Valor Desejado: </Text> {formatCurrency(desiredAmount)}</SummaryText>
             <SummaryText><Text style={{ fontWeight: 'bold' }}>Taxa de Juros Anual: </Text> {result.taxaJuros}%</SummaryText>
             <SummaryText><Text style={{ fontWeight: 'bold' }}>Prazo Total: </Text> {result.resultadoSimulacao[0].parcelas.length} meses</SummaryText>
             <SummaryText><Text style={{ fontWeight: 'bold' }}>Valor da Parcela Mensal: </Text> {formatCurrency(result.resultadoSimulacao[0].parcelas[0].valorPrestacao)}</SummaryText>

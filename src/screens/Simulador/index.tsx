@@ -1,24 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { Keyboard, ScrollView, TouchableWithoutFeedback, View } from "react-native";
+import { Keyboard, ScrollView, TouchableWithoutFeedback } from "react-native";
 
 import * as yup from "yup";
 
-import iconeLogo from "../../assets/icone-logo.png";
 
 import { useTheme } from "styled-components/native";
 import { Button } from "../../components/Button";
 
 import {
   Container,
-
-  ImageLogo,
   InfoContainer,
   InfoTitle,
   SimulatorContainer,
   SimulatorTitle,
-  TitleHeader,
-  InputText,
   ProductPicker,
   ErrorMessage,
   StyledInput,
@@ -138,6 +133,8 @@ export function Simulador() {
         simulatorData.product
       );
 
+      let desiredAmount = parseFloat(simulatorData.amount) / 100
+
       const response = await api.post('/simulacoes', {
         valorDesejado: parseFloat(simulatorData.amount) / 100,
         prazo: parseInt(simulatorData.installments),
@@ -145,7 +142,7 @@ export function Simulador() {
       });
 
       if (response.status === 201) {
-        navigation.navigate("ResultSimulator", { result: simulationResult });
+        navigation.navigate("ResultSimulator", { result: simulationResult, desiredAmount });
         Toast.show({
           type: 'success',
           text1: 'Simulação realizada',

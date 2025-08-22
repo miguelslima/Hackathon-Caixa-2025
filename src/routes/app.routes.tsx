@@ -13,7 +13,7 @@ import ProductsScreen from "@/screens/ProductScreen";
 export type RootBottomParamList = {
   Info: undefined;
   Simulador: undefined;
-  ResultSimulator: { result: {} };
+  ResultSimulator: { result: {}, desiredAmount: number };
   Produtos: undefined
   RegisterProductScreen: undefined
 };
