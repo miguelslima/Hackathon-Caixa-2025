@@ -4,7 +4,6 @@ import { Keyboard, ScrollView, TouchableWithoutFeedback } from "react-native";
 
 import * as yup from "yup";
 
-
 import { useTheme } from "styled-components/native";
 import { Button } from "../../components/Button";
 
@@ -128,7 +127,7 @@ export function Simulador() {
 
       const simulationResult = calculateAmortization(
         parseFloat(simulatorData.amount) / 100,
-        simulatorData.product.taxaJurosAnual,
+        simulatorData.product?.taxaJurosAnual,
         parseInt(simulatorData.installments),
         simulatorData.product
       );

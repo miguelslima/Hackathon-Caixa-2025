@@ -120,15 +120,11 @@ export const TableHeader = styled.Text`
   font-weight: bold;
   font-size: 12px;
   color: #333;
-  flex: 1;
-  text-align: center;
 `;
 
 export const TableCell = styled.Text`
   font-size: 12px;
   color: #666;
-  flex: 1; 
-  text-align: center;
 `;
 
 export const FooterButtons = styled.View`

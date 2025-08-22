@@ -19,15 +19,6 @@ import { InfoContainer } from "../Simulador/styles";
 import { Feather } from '@expo/vector-icons';
 import Header from "@/components/Header";
 
-interface Product {
-  id: number;
-  nome: string;
-  taxaJurosAnual: number;
-  prazoMaximoMeses: number;
-  valorMinimo: number;
-  valorMaximo: number;
-}
-
 interface Parcel {
   numero: number;
   valorAmortizacao: number;
