@@ -92,14 +92,14 @@ export function Simulador() {
     }
   };
 
-  const resetForm = () => {
+  const resetForm = useCallback(() => {
     setSimulatorData({
       product: null,
       amount: '',
       installments: '',
     });
     setErrors({});
-  };
+  }, [products]);
 
   useEffect(() => {
     fetchProducts();

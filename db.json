@@ -230,12 +230,6 @@
       "taxaMensal": "Variável",
       "prazoMaximoMeses": 360,
       "link": "https://www.caixa.gov.br/voce/habitacao/financiamento-pro-cotista/Paginas/default.aspx"
-    },
-    {
-      "id": "12c2",
-      "nome": "Testando Cadastro",
-      "taxaJurosAnual": 125,
-      "prazoMaximoMeses": 72
     }
   ],
   "simulacoes": [

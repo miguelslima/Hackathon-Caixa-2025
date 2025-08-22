@@ -24,6 +24,10 @@ export const InputText = styled(TextInput).attrs<Props>(({ theme }) => ({
   flex: 1;
 
   background-color: ${({ theme }) => theme.COLORS.background_secondary};
+  border-width: 1px;
+  border-color: ${({ isInvalid, theme }) =>
+    isInvalid ? '#FF0000' : theme.COLORS.danger_standard};
+    
   color: ${({ theme }) => theme.COLORS.azul_cx_standard};
   font-family: ${({ theme }) => theme.FONTS.TEXT};
   font-size: 16px;

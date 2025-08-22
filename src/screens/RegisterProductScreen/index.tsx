@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   ActivityIndicator,
   View,
@@ -8,9 +8,8 @@ import { Feather } from '@expo/vector-icons'
 import * as yup from 'yup';
 import { BackButton, BackButtonTitle, Container, ErrorMessage, FormContainer, StyledInput, Title } from './styles';
 import { Button } from '@/components/Button';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
-import { createNumberMask } from 'react-native-mask-input';
 import { api } from '@/services/api';
 
 interface ProductData {
@@ -40,12 +39,6 @@ const validationSchema = yup.object().shape({
     .required('O prazo máximo é obrigatório.'),
 });
 
-const moneyMask = createNumberMask({
-  prefix: ['R', '$', ' '],
-  delimiter: '.',
-  separator: ',',
-  precision: 2,
-});
 
 export default function RegisterProductScreen() {
   const { COLORS } = useTheme();
@@ -59,6 +52,19 @@ export default function RegisterProductScreen() {
     maxTerm: ''
   });
 
+  const resetForm = useCallback(() => {
+    setProduct({
+      name: '',
+      annualInterestRate: '',
+      maxTerm: ''
+    });
+    setErrors({});
+  }, []);
+
+  useFocusEffect(
+    resetForm
+  );
+
   const handleInputChange = (field: keyof ProductData, value: string) => {
     if (field === 'annualInterestRate' || field === 'maxTerm') {
       const sanitizedValue = value.replace(/[^0-9]/g, '');
@@ -66,9 +72,6 @@ export default function RegisterProductScreen() {
     } else {
       setProduct({ ...product, [field]: value });
     }
-  };
-  const handleMaskedAmountChange = (field: 'minAmount' | 'maxAmount', unmasked: string) => {
-    setProduct({ ...product, [field]: unmasked });
   };
 
   const handleSubmit = async () => {
@@ -97,12 +100,7 @@ export default function RegisterProductScreen() {
           text1: 'Sucesso',
           text2: 'Produto cadastrado com sucesso!',
         });
-        setProduct({
-          name: '',
-          annualInterestRate: '',
-          maxTerm: '',
-
-        });
+        resetForm();
         navigate.navigate('Produtos')
 
       } else {
@@ -176,7 +174,6 @@ export default function RegisterProductScreen() {
           isInvalid={!!errors.maxTerm}
         />
         {errors.maxTerm && <ErrorMessage>{errors.maxTerm}</ErrorMessage>}
-
 
       </FormContainer>
       <View>
