@@ -10,27 +10,6 @@ export const ContentWrapper = styled.ScrollView`
   padding: 24px;
 `;
 
-export const Header = styled.View`
-  padding-vertical: 16px;
-  background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ImageLogo = styled.Image`
-  width: 100px;
-  height: 80px;
-`;
-
-export const TitleHeader = styled.Text`
-  width: 200px;
-  color: #fff;
-  font-size: 20px;
-  text-align: center;
-  font-weight: bold;
-`;
-
 export const InfoContainer = styled.View`
   flex-direction: row;
   justify-content: center;
@@ -42,7 +21,6 @@ export const InfoTitle = styled.Text`
   color: #fff;
   text-align: center;
 
-  margin-top: 15%;
 `;
 
 export const SummaryCard = styled.View`

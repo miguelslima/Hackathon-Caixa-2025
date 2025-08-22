@@ -9,25 +9,6 @@ export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
   padding: 24px;
-
-`;
-
-export const Header = styled.View`
-  flex-direction: row;
-  margin-top: 18px;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ImageLogo = styled.Image`
-  width: 100px;
-  height: 80px;
-`;
-
-export const TitleHeader = styled.Text`
-  color: #fff;
-  font-size: 20px;
-  text-align: center;
 `;
 
 export const InfoContainer = styled.View`
@@ -41,7 +22,6 @@ export const InfoTitle = styled.Text`
   font-size: 20px;
   color: #fff;
   text-align: justify;
-  margin-top: 16px;
 `;
 
 export const SimulatorContainer = styled.View`

@@ -6,20 +6,6 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
 `;
 
-export const Header = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  margin-block: 24px
-`;
-
-export const ImageLogo = styled.Image`
-  width: 100px;
-  height: 80px;
-`;
-
-
 export const Title = styled.Text`
   font-size: 28px;
   font-weight: bold;
@@ -52,4 +38,21 @@ export const ProductDetails = styled.Text`
 
 export const FlatListContainer = styled.View`
   flex: 1;
+`;
+
+
+export const SearchInputContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding-horizontal: 16px;
+  margin-bottom: 20px;
+`;
+
+export const SearchInput = styled.TextInput`
+  flex: 1;
+  height: 50px;
+  color: #333;
+  font-size: 16px;
 `;

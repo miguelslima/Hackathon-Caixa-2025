@@ -11,7 +11,7 @@ import { Button } from "../../components/Button";
 
 import {
   Container,
-  Header,
+
   ImageLogo,
   InfoContainer,
   InfoTitle,
@@ -32,6 +32,7 @@ import { Picker } from "@react-native-picker/picker";
 import MaskInput, { createNumberMask } from 'react-native-mask-input';
 import { api } from "@/services/api";
 import { calculateAmortization } from "@/utils/calculateAmortization";
+import Header from "@/components/Header";
 
 interface Product {
   id: number;
@@ -202,10 +203,7 @@ export function Simulador() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
         <ScrollView style={{ flex: 1 }}>
-          <Header>
-            <ImageLogo source={iconeLogo} />
-            <TitleHeader>Simulador de empréstimo</TitleHeader>
-          </Header>
+          <Header title="Simulador de empréstimo" />
 
           <InfoContainer>
             <InfoTitle>

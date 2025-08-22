@@ -3,15 +3,15 @@ import {
   Alert,
   ActivityIndicator,
   FlatList,
-  View,
   Text,
 } from 'react-native';
-import axios from 'axios';
-import { Container, FlatListContainer, Header, ImageLogo, ProductDetails, ProductItemContainer, ProductName, Title } from './styles';
+import { Feather } from '@expo/vector-icons'
+import { Container, FlatListContainer, ProductDetails, ProductItemContainer, ProductName, SearchInput, SearchInputContainer } from './styles';
 import { Button } from '@/components/Button';
 
-import iconeLogo from "../../assets/icone-logo.png";
 import { api } from '@/services/api';
+import { useTheme } from "styled-components/native";
+import Header from '@/components/Header';
 
 export interface Product {
   id: number;
@@ -22,15 +22,12 @@ export interface Product {
 }
 
 export default function ProductsScreen({ navigation }) {
+  const { COLORS } = useTheme()
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const formatCurrency = (value: number): string => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(value);
-  };
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [search, setSearch] = useState('');
 
   const fetchProducts = async () => {
     setIsLoading(true);
@@ -38,6 +35,7 @@ export default function ProductsScreen({ navigation }) {
       const response = await api.get('/produtos');
 
       setProducts(response.data);
+      setFilteredProducts(response.data);
     } catch (error) {
       console.error(error);
       Alert.alert('Erro', 'Não foi possível carregar os produtos.');
@@ -53,6 +51,17 @@ export default function ProductsScreen({ navigation }) {
 
     return unsubscribe;
   }, [navigation]);
+
+  useEffect(() => {
+    if (search) {
+      const filtered = products.filter(product =>
+        product.nome.toLowerCase().includes(search.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [search, products]);
 
   const renderProductItem = ({ item }: { item: Product }) => (
     <ProductItemContainer>
@@ -74,17 +83,24 @@ export default function ProductsScreen({ navigation }) {
 
   return (
     <Container>
-      <Header>
-        <ImageLogo source={iconeLogo} />
-        <Title>Produtos</Title>
-      </Header>
+      <Header title="Produtos" />
+
+      <SearchInputContainer>
+        <SearchInput
+          placeholder="Buscar produto..."
+          placeholderTextColor="#888"
+          value={search}
+          onChangeText={setSearch}
+        />
+        <Feather name="search" size={20} color={COLORS.CAIXA_BLUE} />
+      </SearchInputContainer>
 
       <FlatListContainer>
         {isLoading ? (
           <ActivityIndicator size="large" color="white" />
         ) : (
           <FlatList
-            data={products}
+            data={filteredProducts}
             keyExtractor={(item) => item.id.toString()}
             renderItem={renderProductItem}
             contentContainerStyle={{ paddingBottom: 20 }}

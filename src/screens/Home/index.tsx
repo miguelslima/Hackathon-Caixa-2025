@@ -42,7 +42,6 @@ export function Home() {
 
             <FormContainer>
               <Input
-                iconName="user"
                 placeholder="Ex: Joao Maria"
                 keyboardType="default"
                 autoCorrect={false}

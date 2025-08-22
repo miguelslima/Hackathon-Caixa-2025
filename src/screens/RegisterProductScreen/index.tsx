@@ -11,6 +11,7 @@ import { Button } from '@/components/Button';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 import { api } from '@/services/api';
+import Header from '@/components/Header';
 
 interface ProductData {
   name: string;
@@ -147,8 +148,9 @@ export default function RegisterProductScreen() {
 
         <BackButtonTitle>Voltar</BackButtonTitle>
       </BackButton>
+      <Header title='Cadastre um novo produto' />
       <FormContainer>
-        <Title>Cadastrar Novo Produto</Title>
+
         <StyledInput
           placeholder="Nome do Produto"
           value={product.name}

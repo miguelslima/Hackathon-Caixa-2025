@@ -1,26 +1,21 @@
 import { useEffect, useState } from "react";
-import { Alert, Platform, UIManager } from "react-native";
+import { ActivityIndicator, Alert, Platform, UIManager, View } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components/native";
 
 import { Button } from "@/components/Button";
 
-import iconeLogo from "@/assets/icone-logo.png";
-
-
 import {
   Container,
-  Header,
-  ImageLogo,
   InfoContainer,
   InfoTitle,
-  TitleHeader,
 } from "./styles";
 import { useAuth } from "../../hooks/auth";
 import { ScrollView } from "react-native-gesture-handler";
 import { AccordionItem } from "@/components/AccordionItem";
 import { api } from "@/services/api";
+import Header from "@/components/Header";
 
 export interface Product {
   id: number;
@@ -89,10 +84,7 @@ export function Info() {
   return (
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Header>
-          <ImageLogo source={iconeLogo} />
-          <TitleHeader>Crédito CAIXA</TitleHeader>
-        </Header>
+        <Header title="Crédito CAIXA" />
         <InfoContainer>
           <InfoTitle>
             Olá {user?.name}, seja qual for o momento ou motivo, a CAIXA tem a
@@ -100,22 +92,30 @@ export function Info() {
             nossas opções de empréstimo e financiamento.
           </InfoTitle>
         </InfoContainer>
-        {products.map((item, idx) => (
-          <AccordionItem
-            key={idx}
-            title={item.nome}
-            body={item.descricao}
-            link={item.link}
-            isExpanded={expandedIndex === idx}
-            onPress={() => handleAccordionPress(idx)}
-          />
-        ))}
+
+        {isLoading ?
+          <ActivityIndicator size="large" color="white" /> :
+          <>
+            {
+              products.map((item, idx) => (
+                <AccordionItem
+                  key={idx}
+                  title={item.nome}
+                  body={item.descricao}
+                  link={item.link}
+                  isExpanded={expandedIndex === idx}
+                  onPress={() => handleAccordionPress(idx)}
+                />
+              ))
+            }
+          </>
+        }
       </ScrollView>
       <Button
         title="Simule agora"
         color={COLORS.CAIXA_YELLOW}
         onPress={handleSimulator}
       />
-    </Container>
+    </Container >
   );
 }

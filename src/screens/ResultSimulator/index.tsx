@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import {
   Text,
@@ -7,21 +7,17 @@ import {
   Linking,
   Modal,
   View,
-  FlatList,
-  ScrollView,
-  TouchableOpacity,
 } from "react-native";
-import { useTheme } from "styled-components/native";
 import { Button } from "../../components/Button";
 import { useAuth } from "../../hooks/auth";
-import iconeLogo from "../../assets/icone-logo.png";
 import {
   LineChart
 } from "react-native-chart-kit";
 import { Dimensions } from "react-native";
-import { AmortizationButton, AmortizationButtonText, AmortizationContainer, CloseButton, Container, ContentWrapper, FooterButtons, Header, ImageLogo, InfoTitle, ModalContent, ModalTable, ModalTitle, SummaryCard, SummaryText, SummaryTitle, TableCell, TableHeader, TableRow, TitleHeader } from "./styles";
+import { AmortizationButton, AmortizationButtonText, AmortizationContainer, CloseButton, Container, ContentWrapper, FooterButtons, InfoTitle, ModalContent, ModalTable, ModalTitle, SummaryCard, SummaryText, SummaryTitle, TableCell, TableHeader, TableRow } from "./styles";
 import { InfoContainer } from "../Simulador/styles";
 import { Feather } from '@expo/vector-icons';
+import Header from "@/components/Header";
 
 interface Product {
   id: number;
@@ -144,10 +140,7 @@ export function ResultSimulator() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
         <ContentWrapper>
-          <Header>
-            <ImageLogo source={iconeLogo} />
-            <TitleHeader>Resultado da Simulação</TitleHeader>
-          </Header>
+          <Header title="Resultado da Simulação" />
           <InfoContainer>
             <InfoTitle>
               Olá {user?.name}, confira abaixo as opções encontradas de acordo com
@@ -161,7 +154,7 @@ export function ResultSimulator() {
             <SummaryText><Text style={{ fontWeight: 'bold' }}>Taxa de Juros Anual: </Text> {result.taxaJuros}%</SummaryText>
             <SummaryText><Text style={{ fontWeight: 'bold' }}>Prazo Total: </Text> {result.resultadoSimulacao[0].parcelas.length} meses</SummaryText>
             <SummaryText><Text style={{ fontWeight: 'bold' }}>Valor da Parcela Mensal: </Text> {formatCurrency(result.resultadoSimulacao[0].parcelas[0].valorPrestacao)}</SummaryText>
-            <SummaryText><Text style={{ fontWeight: 'bold' }}>Valor Total Pago: </Text> {formatCurrency(totalValue)}</SummaryText>
+            <SummaryText><Text style={{ fontWeight: 'bold' }}>Valor Total com juros: </Text> {formatCurrency(totalValue)}</SummaryText>
           </SummaryCard>
 
           {isImobiliario ? (
@@ -193,7 +186,7 @@ export function ResultSimulator() {
               <CloseButton onPress={() => setModalVisible(false)}>
                 <Feather name="x" size={24} color="#333" />
               </CloseButton>
-              <ModalTitle>Sistema de Amortização {selectedAmortization}</ModalTitle>
+              <ModalTitle>Sistema de Amortização {selectedAmortization === 'PRICE' ? '' : selectedAmortization}</ModalTitle>
 
               <Text style={{ marginBottom: 10, fontSize: 16 }}>Evolução do Saldo Devedor</Text>
               <LineChart
