@@ -25,9 +25,9 @@ O Simulador CAIXA é uma aplicação mobile desenvolvida para o Hackathon CAIXA 
 
 ✨ Funcionalidades
 
-[x] Visualização de produtos de crédito disponíveis.
-[x] Simulação de empréstimos com base no valor e prazo.
-[x] Exibição clara dos resultados, incluindo juros e valor total.
+[x] Visualização de produtos de crédito disponíveis.<br>
+[x] Simulação de empréstimos com base no valor e prazo.<br>
+[x] Exibição clara dos resultados, incluindo juros e valor total.<br>
 [x] Detalhamento da memória de cálculo (amortização) mês a mês (Tabela Price e SAC).
 <br>
 
@@ -102,4 +102,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 <a href="https://github.com/miguelslima">
 <img style="border-radius: 50%;" src="https://github.com/miguelslima.png" width="200px;" alt="Miguel Lima"/>
 <b>Miguel Lima</b></a>
-Feito com ❤️ por Miguel Lima 👋 Entre em contato!
+<br>Feito com ❤️ por Miguel Lima 👋 Entre em contato!
