@@ -1,36 +1,28 @@
 import React, { useState } from 'react';
 import {
-  Alert,
   ActivityIndicator,
   View,
-  TouchableOpacity,
-  Text,
 } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import { Feather } from '@expo/vector-icons'
-import axios from 'axios';
 import * as yup from 'yup';
 import { BackButton, BackButtonTitle, Container, ErrorMessage, FormContainer, StyledInput, Title } from './styles';
 import { Button } from '@/components/Button';
 import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
-import MaskInput, { createNumberMask } from 'react-native-mask-input';
+import { createNumberMask } from 'react-native-mask-input';
 import { api } from '@/services/api';
 
 interface ProductData {
   name: string;
   annualInterestRate: string;
   maxTerm: string;
-  minAmount: string;
-  maxAmount: string;
 }
 
 interface FormErrors {
   name?: string;
   annualInterestRate?: string;
   maxTerm?: string;
-  minAmount?: string;
-  maxAmount?: string;
 }
 
 const validationSchema = yup.object().shape({
@@ -46,24 +38,6 @@ const validationSchema = yup.object().shape({
     .integer('O prazo máximo deve ser um número inteiro.')
     .positive('O prazo máximo deve ser um número positivo.')
     .required('O prazo máximo é obrigatório.'),
-  minAmount: yup
-    .number()
-    .typeError('O valor mínimo deve ser um número.')
-    .positive('O valor mínimo deve ser um número positivo.')
-    .required('O valor mínimo é obrigatório.'),
-  maxAmount: yup
-    .number()
-    .typeError('O valor máximo deve ser um número.')
-    .positive('O valor máximo deve ser um número positivo.')
-    .required('O valor máximo é obrigatório.')
-    .test(
-      'is-greater',
-      'O valor máximo deve ser maior que o valor mínimo.',
-      function (value) {
-        const { minAmount } = this.parent;
-        return value > minAmount;
-      }
-    ),
 });
 
 const moneyMask = createNumberMask({
@@ -82,9 +56,7 @@ export default function RegisterProductScreen() {
   const [product, setProduct] = useState<ProductData>({
     name: '',
     annualInterestRate: '',
-    maxTerm: '',
-    minAmount: '',
-    maxAmount: '',
+    maxTerm: ''
   });
 
   const handleInputChange = (field: keyof ProductData, value: string) => {
@@ -109,8 +81,6 @@ export default function RegisterProductScreen() {
           name: product.name,
           annualInterestRate: parseFloat(product.annualInterestRate),
           maxTerm: parseInt(product.maxTerm),
-          minAmount: parseFloat(product.minAmount),
-          maxAmount: parseFloat(product.maxAmount),
         },
         { abortEarly: false }
       );
@@ -119,8 +89,6 @@ export default function RegisterProductScreen() {
         nome: product.name,
         taxaJurosAnual: parseFloat(product.annualInterestRate),
         prazoMaximoMeses: parseInt(product.maxTerm),
-        valorMinimo: parseFloat(product.minAmount),
-        valorMaximo: parseFloat(product.maxAmount),
       });
 
       if (response.status === 201) {
@@ -133,8 +101,7 @@ export default function RegisterProductScreen() {
           name: '',
           annualInterestRate: '',
           maxTerm: '',
-          minAmount: '',
-          maxAmount: '',
+
         });
         navigate.navigate('Produtos')
 
@@ -210,49 +177,7 @@ export default function RegisterProductScreen() {
         />
         {errors.maxTerm && <ErrorMessage>{errors.maxTerm}</ErrorMessage>}
 
-        <MaskInput
-          style={{
-            height: 56,
-            fontWeight: "bold",
-            color: COLORS.CAIXA_BLUE,
-            borderColor: !!errors.minAmount ? '#ff0000' : '#E0E0E0',
-            borderWidth: 1,
-            borderRadius: 8,
-            paddingHorizontal: 24,
-            fontSize: 16,
-            marginBottom: 10,
-            backgroundColor: '#fff',
-          }}
-          placeholder="Valor Mínimo"
-          keyboardType="numeric"
-          placeholderTextColor={COLORS.CAIXA_BLUE}
-          value={product.minAmount}
-          onChangeText={(masked, unmasked) => handleMaskedAmountChange('minAmount', unmasked)}
-          mask={moneyMask}
-        />
-        {errors.minAmount && <ErrorMessage>{errors.minAmount}</ErrorMessage>}
 
-        <MaskInput
-          style={{
-            height: 56,
-            fontWeight: "bold",
-            color: COLORS.CAIXA_BLUE,
-            borderColor: !!errors.maxAmount ? '#ff0000' : '#E0E0E0',
-            borderWidth: 1,
-            borderRadius: 8,
-            paddingHorizontal: 24,
-            fontSize: 16,
-            marginBottom: 10,
-            backgroundColor: '#fff',
-          }}
-          placeholder="Valor Máximo"
-          placeholderTextColor={COLORS.CAIXA_BLUE}
-          keyboardType="numeric"
-          value={product.maxAmount}
-          onChangeText={(masked, unmasked) => handleMaskedAmountChange('maxAmount', unmasked)}
-          mask={moneyMask}
-        />
-        {errors.maxAmount && <ErrorMessage>{errors.maxAmount}</ErrorMessage>}
       </FormContainer>
       <View>
         {isLoading ? (

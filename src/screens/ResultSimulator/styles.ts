@@ -84,23 +84,22 @@ export const AmortizationButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.CAIXA_YELLOW};
   padding: 16px;
   border-radius: 8px;
-  width: 45%;
   align-items: center;
 `;
 
 export const AmortizationButtonText = styled.Text`
   color: #fff;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 24px;
 
   text-align: center;
 `;
 
 export const ModalContent = styled.View`
+  flex: 1;
+  justify-content: space-between;
   background-color: white;
   padding: 20px;
   border-radius: 12px;
-  align-items: center;
   shadow-color: #000;
   shadow-offset: 0px 2px;
   shadow-opacity: 0.25;
@@ -110,10 +109,17 @@ export const ModalContent = styled.View`
   max-height: 95%;
 `;
 
+export const CloseButton = styled.TouchableOpacity`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 10px;
+  z-index: 10;
+`;
+
 export const ModalTitle = styled.Text`
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 10px;
   color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
 `;
 
@@ -121,7 +127,7 @@ export const ModalTable = styled(FlatList).attrs({
   contentContainerStyle: { paddingBottom: 20 },
 })`
   width: 100%;
-  max-height: 40%; 
+  max-height: 45%; 
 `;
 
 export const TableRow = styled.View`
@@ -129,18 +135,22 @@ export const TableRow = styled.View`
   justify-content: space-between;
   border-bottom-width: 1px;
   border-bottom-color: #eee;
-  padding-vertical: 8px;
+  padding-vertical: 6px;
 `;
 
 export const TableHeader = styled.Text`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
+  flex: 1;
+  text-align: center;
 `;
 
 export const TableCell = styled.Text`
   font-size: 12px;
   color: #666;
+  flex: 1; 
+  text-align: center;
 `;
 
 export const FooterButtons = styled.View`

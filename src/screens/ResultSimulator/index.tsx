@@ -9,6 +9,7 @@ import {
   View,
   FlatList,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import { useTheme } from "styled-components/native";
 import { Button } from "../../components/Button";
@@ -18,8 +19,9 @@ import {
   LineChart
 } from "react-native-chart-kit";
 import { Dimensions } from "react-native";
-import { AmortizationButton, AmortizationButtonText, AmortizationContainer, Container, ContentWrapper, FooterButtons, Header, ImageLogo, InfoTitle, ModalContent, ModalTable, ModalTitle, SummaryCard, SummaryText, SummaryTitle, TableCell, TableHeader, TableRow, TitleHeader } from "./styles";
+import { AmortizationButton, AmortizationButtonText, AmortizationContainer, CloseButton, Container, ContentWrapper, FooterButtons, Header, ImageLogo, InfoTitle, ModalContent, ModalTable, ModalTitle, SummaryCard, SummaryText, SummaryTitle, TableCell, TableHeader, TableRow, TitleHeader } from "./styles";
 import { InfoContainer } from "../Simulador/styles";
+import { Feather } from '@expo/vector-icons';
 
 interface Product {
   id: number;
@@ -89,7 +91,6 @@ const formatCurrency = (value: number): string => {
 };
 
 export function ResultSimulator() {
-  const { COLORS } = useTheme();
   const route = useRoute();
   const navigation = useNavigation();
   const { user } = useAuth();
@@ -102,7 +103,7 @@ export function ResultSimulator() {
   const isImobiliario = result.descricaoProduto.includes('Imobiliário');
 
   const sacResult = isImobiliario ? calculateSAC(
-    result.resultadoSimulacao[0].parcelas[0].saldoDevedor, // This is incorrect, should be initial principal. Assuming it's passed somehow
+    result.resultadoSimulacao[0].parcelas[0].saldoDevedor,
     result.taxaJuros,
     result.resultadoSimulacao[0].parcelas.length
   ) : [];
@@ -126,8 +127,12 @@ export function ResultSimulator() {
 
   const currentAmortization = selectedAmortization === 'SAC' ? sacResult : result.resultadoSimulacao[0].parcelas;
 
+  const totalValue = currentAmortization.reduce((sum, parcel) => sum + parcel.valorPrestacao, 0);
+
   const chartData = {
-    labels: currentAmortization.map(p => p.numero.toString()),
+    labels: currentAmortization
+      .filter((_, index) => (index + 1) % 3 === 0)
+      .map(p => p.numero.toString()),
     datasets: [{
       data: currentAmortization.map(p => p.saldoDevedor),
       color: (opacity = 1) => `rgba(0, 181, 173, ${opacity})`,
@@ -152,10 +157,11 @@ export function ResultSimulator() {
 
           <SummaryCard>
             <SummaryTitle>Detalhes da Simulação</SummaryTitle>
-            <SummaryText>Produto: {result.descricaoProduto}</SummaryText>
-            <SummaryText>Taxa de Juros Anual: {result.taxaJuros}%</SummaryText>
-            <SummaryText>Prazo Total: {result.resultadoSimulacao[0].parcelas.length} meses</SummaryText>
-            <SummaryText>Valor da Parcela: {formatCurrency(result.resultadoSimulacao[0].parcelas[0].valorPrestacao)}</SummaryText>
+            <SummaryText><Text style={{ fontWeight: 'bold' }}>Produto: </Text> {result.descricaoProduto}</SummaryText>
+            <SummaryText><Text style={{ fontWeight: 'bold' }}>Taxa de Juros Anual: </Text> {result.taxaJuros}%</SummaryText>
+            <SummaryText><Text style={{ fontWeight: 'bold' }}>Prazo Total: </Text> {result.resultadoSimulacao[0].parcelas.length} meses</SummaryText>
+            <SummaryText><Text style={{ fontWeight: 'bold' }}>Valor da Parcela Mensal: </Text> {formatCurrency(result.resultadoSimulacao[0].parcelas[0].valorPrestacao)}</SummaryText>
+            <SummaryText><Text style={{ fontWeight: 'bold' }}>Valor Total Pago: </Text> {formatCurrency(totalValue)}</SummaryText>
           </SummaryCard>
 
           {isImobiliario ? (
@@ -170,7 +176,7 @@ export function ResultSimulator() {
           ) : (
             <AmortizationContainer>
               <AmortizationButton onPress={() => handleAmortizationSelect('PRICE')}>
-                <AmortizationButtonText>Detalhes da Amortização</AmortizationButtonText>
+                <AmortizationButtonText>Veja mais detalhes da Amortização</AmortizationButtonText>
               </AmortizationButton>
             </AmortizationContainer>
           )}
@@ -184,13 +190,16 @@ export function ResultSimulator() {
         >
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' }}>
             <ModalContent>
+              <CloseButton onPress={() => setModalVisible(false)}>
+                <Feather name="x" size={24} color="#333" />
+              </CloseButton>
               <ModalTitle>Sistema de Amortização {selectedAmortization}</ModalTitle>
 
               <Text style={{ marginBottom: 10, fontSize: 16 }}>Evolução do Saldo Devedor</Text>
               <LineChart
                 data={chartData}
-                width={screenWidth * 0.75}
-                height={220}
+                width={screenWidth * 0.85}
+                height={300}
                 chartConfig={{
                   backgroundColor: '#fff',
                   backgroundGradientFrom: '#fff',
@@ -226,7 +235,6 @@ export function ResultSimulator() {
                   </TableRow>
                 )}
               />
-              <Button title="Fechar" onPress={() => setModalVisible(false)} />
             </ModalContent>
           </View>
         </Modal>

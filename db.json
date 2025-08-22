@@ -1,7 +1,7 @@
 {
   "produtos": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Crédito Pessoal Mensal Pré-Fixado",
       "descricao": "Empréstimo com parcelas e taxas de juros fixas do início ao fim do contrato, para organizar suas finanças ou realizar projetos.",
       "publicoAlvo": "Clientes com conta na Caixa e análise de crédito aprovada.",
@@ -12,7 +12,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/emprestimo/emprestimo-pessoal/Paginas/default.aspx"
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "Crédito Pessoal Mensal Pós-Fixado",
       "descricao": "Empréstimo com taxas de juros que podem variar ao longo do contrato, geralmente atreladas a um indicador econômico.",
       "publicoAlvo": "Clientes com conta na Caixa e análise de crédito aprovada.",
@@ -23,7 +23,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/emprestimo/emprestimo-pessoal/Paginas/default.aspx"
     },
     {
-      "id": 3,
+      "id": "3",
       "nome": "CDC Salário (Crédito Direto Caixa)",
       "descricao": "Linha de crédito pré-aprovada para quem recebe salário na Caixa, com contratação fácil e débito direto na conta.",
       "publicoAlvo": "Clientes que recebem salário em conta corrente na Caixa.",
@@ -34,7 +34,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/emprestimo/emprestimo-pessoal/Paginas/default.aspx"
     },
     {
-      "id": 4,
+      "id": "4",
       "nome": "CDC Automático",
       "descricao": "Limite de crédito pré-aprovado disponível para uso a qualquer momento, diretamente no caixa eletrônico, app ou internet banking.",
       "publicoAlvo": "Clientes com conta na Caixa e limite pré-aprovado.",
@@ -45,7 +45,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/emprestimo/emprestimo-pessoal/Paginas/default.aspx"
     },
     {
-      "id": 5,
+      "id": "5",
       "nome": "Empréstimo Consignado INSS",
       "descricao": "Crédito com desconto direto na folha de pagamento do benefício, com taxas de juros reduzidas.",
       "publicoAlvo": "Aposentados e Pensionistas do INSS.",
@@ -56,7 +56,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/emprestimo/consignado-inss/Paginas/default.aspx"
     },
     {
-      "id": 6,
+      "id": "6",
       "nome": "Empréstimo Consignado Servidor Público",
       "descricao": "Crédito com desconto direto no salário, destinado a funcionários de órgãos públicos conveniados.",
       "publicoAlvo": "Servidores Públicos Federais, Estaduais e Municipais.",
@@ -67,7 +67,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/emprestimo/consignado/Paginas/default.aspx"
     },
     {
-      "id": 7,
+      "id": "7",
       "nome": "Empréstimo Consignado Empresa Privada",
       "descricao": "Crédito com desconto direto no salário para funcionários de empresas privadas que possuem convênio com a Caixa.",
       "publicoAlvo": "Funcionários de empresas privadas conveniadas.",
@@ -78,7 +78,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/emprestimo/consignado/Paginas/default.aspx"
     },
     {
-      "id": 8,
+      "id": "8",
       "nome": "Antecipação Saque-Aniversário FGTS",
       "descricao": "Adiantamento do valor de futuras parcelas do Saque-Aniversário do FGTS, usando o saldo como garantia.",
       "publicoAlvo": "Trabalhadores com saldo em conta FGTS que optaram pelo Saque-Aniversário.",
@@ -89,7 +89,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/emprestimo/antecipacao-saque-aniversario-FGTS/Paginas/default.aspx"
     },
     {
-      "id": 9,
+      "id": "9",
       "nome": "Antecipação do 13º Salário",
       "descricao": "Adiantamento do valor do seu 13º salário para usar o dinheiro quando precisar, com pagamento único.",
       "publicoAlvo": "Clientes que recebem salário ou benefício na Caixa.",
@@ -100,7 +100,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/credito-pessoal/antecipacao-de-13-salario/Paginas/default.aspx"
     },
     {
-      "id": 10,
+      "id": "10",
       "nome": "Penhor Caixa",
       "descricao": "Crédito rápido e sem burocracia, utilizando joias, relógios ou outros objetos de valor como garantia.",
       "publicoAlvo": "Qualquer pessoa maior de 18 anos que possua um bem para penhorar.",
@@ -111,7 +111,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/penhor/Paginas/default.aspx"
     },
     {
-      "id": 11,
+      "id": "11",
       "nome": "Crédito Real Fácil (Garantia de Imóvel)",
       "descricao": "Empréstimo de alto valor e longo prazo, utilizando um imóvel quitado como garantia (Home Equity).",
       "publicoAlvo": "Pessoas físicas proprietárias de imóvel residencial ou comercial.",
@@ -122,7 +122,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/credito-real-facil/Paginas/default.aspx"
     },
     {
-      "id": 12,
+      "id": "12",
       "nome": "Aporte Auto (Garantia de Veículo)",
       "descricao": "Utilize seu veículo quitado como garantia para conseguir um empréstimo com melhores condições.",
       "publicoAlvo": "Pessoas físicas proprietárias de veículo.",
@@ -133,7 +133,7 @@
       "link": "https://www.caixa.gov.br/voce/credito-financiamento/veiculos/Paginas/default.aspx"
     },
     {
-      "id": 13,
+      "id": "13",
       "nome": "Crédito Rural Pronaf",
       "descricao": "Financiamento do Programa Nacional de Fortalecimento da Agricultura Familiar, com juros subsidiados para custeio e investimento.",
       "publicoAlvo": "Agricultores familiares com Declaração de Aptidão ao Pronaf (DAP) ou CAF-Pronaf.",
@@ -144,7 +144,7 @@
       "link": "https://www.caixa.gov.br/agronegocio/credito-rural/custeio/Paginas/default.aspx"
     },
     {
-      "id": 14,
+      "id": "14",
       "nome": "Crédito Rural Pronamp",
       "descricao": "Financiamento do Programa Nacional de Apoio ao Médio Produtor Rural, para custeio e investimento na propriedade.",
       "publicoAlvo": "Médios produtores rurais com renda bruta anual de até R$ 3 milhões.",
@@ -155,7 +155,7 @@
       "link": "https://www.caixa.gov.br/agronegocio/credito-rural/investimento/Paginas/default.aspx"
     },
     {
-      "id": 15,
+      "id": "15",
       "nome": "Crédito Rural (Demais Produtores)",
       "descricao": "Linhas de crédito para custeio, investimento e comercialização destinadas a produtores que não se enquadram no Pronaf ou Pronamp.",
       "publicoAlvo": "Produtores rurais e cooperativas de produção.",
@@ -166,7 +166,7 @@
       "link": "https://www.caixa.gov.br/agronegocio/credito-rural/Paginas/default.aspx"
     },
     {
-      "id": 16,
+      "id": "16",
       "nome": "Microcrédito Produtivo Orientado",
       "descricao": "Crédito para pequenos empreendedores, formais ou informais, para capital de giro ou investimento.",
       "publicoAlvo": "Empreendedores com faturamento anual de até R$ 360 mil.",
@@ -177,7 +177,7 @@
       "link": "https://www.caixa.gov.br/empresa/credito-financiamento/capital-giro/microcredito-produtivo-orientado/Paginas/default.aspx"
     },
     {
-      "id": 17,
+      "id": "17",
       "nome": "Financiamento Estudantil (FIES)",
       "descricao": "Programa do Ministério da Educação para financiar a graduação em instituições de ensino superior privadas.",
       "publicoAlvo": "Estudantes que atendam aos critérios de renda do programa.",
@@ -188,7 +188,7 @@
       "link": "https://www.caixa.gov.br/programas-sociais/fies/Paginas/default.aspx"
     },
     {
-      "id": 18,
+      "id": "18",
       "nome": "Financiamento Imobiliário Minha Casa, Minha Vida",
       "descricao": "Programa do Governo Federal para facilitar a compra da casa própria, com subsídios e taxas de juros reduzidas para famílias de baixa renda.",
       "publicoAlvo": "Famílias com renda bruta mensal de até R$ 8.000, dividido em faixas.",
@@ -199,7 +199,7 @@
       "link": "https://www.caixa.gov.br/voce/habitacao/minha-casa-minha-vida/Paginas/default.aspx"
     },
     {
-      "id": 19,
+      "id": "19",
       "nome": "Financiamento Imobiliário SBPE (TR)",
       "descricao": "Financiamento para aquisição de imóvel novo ou usado com juros atrelados à Taxa Referencial (TR).",
       "publicoAlvo": "Qualquer pessoa física com capacidade de pagamento aprovada.",
@@ -210,7 +210,7 @@
       "link": "https://www.caixa.gov.br/voce/habitacao/Paginas/default.aspx"
     },
     {
-      "id": 20,
+      "id": "20",
       "nome": "Financiamento Imobiliário Poupança Caixa",
       "descricao": "Modalidade com juros compostos por uma parte fixa e uma variável, vinculada ao rendimento da poupança.",
       "publicoAlvo": "Qualquer pessoa física com capacidade de pagamento aprovada.",
@@ -221,7 +221,7 @@
       "link": "https://www.caixa.gov.br/voce/habitacao/Paginas/default.aspx"
     },
     {
-      "id": 21,
+      "id": "21",
       "nome": "Financiamento Pró-Cotista (FGTS)",
       "descricao": "Linha de crédito com taxas de juros atrativas para trabalhadores titulares de conta vinculada do FGTS.",
       "publicoAlvo": "Trabalhadores com conta no FGTS, sujeito a regras específicas.",
@@ -230,6 +230,12 @@
       "taxaMensal": "Variável",
       "prazoMaximoMeses": 360,
       "link": "https://www.caixa.gov.br/voce/habitacao/financiamento-pro-cotista/Paginas/default.aspx"
+    },
+    {
+      "id": "12c2",
+      "nome": "Testando Cadastro",
+      "taxaJurosAnual": 125,
+      "prazoMaximoMeses": 72
     }
   ],
   "simulacoes": [

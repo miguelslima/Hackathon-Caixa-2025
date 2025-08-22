@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useCallback, useEffect, useState } from "react";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { Keyboard, ScrollView, TouchableWithoutFeedback, View } from "react-native";
 
 import * as yup from "yup";
@@ -52,12 +52,7 @@ const validationSchema = yup.object().shape({
   product: yup.object().required('Selecione um produto.'),
   amount: yup.number()
     .typeError('O valor desejado deve ser um número.')
-    .required('O valor desejado é obrigatório.')
-    .test('minMaxAmount', 'Valor fora dos limites do produto.', function (value) {
-      const { product } = this.parent;
-      if (!product) return true;
-      return value >= product.valorMinimo && value <= product.valorMaximo;
-    }),
+    .required('O valor desejado é obrigatório.'),
   installments: yup.number()
     .typeError('O número de parcelas deve ser um número.')
     .required('O número de parcelas é obrigatório.')
@@ -84,24 +79,42 @@ export function Simulador() {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
+  const fetchProducts = async () => {
+    try {
+      const response = await api.get('/produtos');
+      setProducts(response.data);
+    } catch (error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Erro',
+        text2: 'Não foi possível carregar os produtos.',
+      });
+    }
+  };
+
+  const resetForm = () => {
+    setSimulatorData({
+      product: null,
+      amount: '',
+      installments: '',
+    });
+    setErrors({});
+  };
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await api.get('/produtos');
-        setProducts(response.data);
-      } catch (error) {
-        Toast.show({
-          type: 'error',
-          text1: 'Erro',
-          text2: 'Não foi possível carregar os produtos.',
-        });
-      }
-    };
+    fetchProducts();
+  }, []);
 
-    const unsubscribe = navigation.addListener('focus', fetchProducts);
+  useFocusEffect(
+    useCallback(() => {
+      resetForm()
+    }, [])
+  );
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', resetForm);
     return unsubscribe;
-  }, [navigation]);
+  }, [navigation, products]);
 
   const handleSimulator = async () => {
     setLoading(true);
