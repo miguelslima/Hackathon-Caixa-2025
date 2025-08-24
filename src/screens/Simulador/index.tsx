@@ -220,7 +220,7 @@ export function Simulador() {
                 ))}
               </ProductPicker>
             </PickerWrapper>
-            {errors.product && <ErrorMessage>{errors.product}</ErrorMessage>}
+            {errors?.product && <ErrorMessage>{errors?.product}</ErrorMessage>}
 
             <SimulatorTitle>Valor desejado</SimulatorTitle>
             <MaskInput
@@ -243,7 +243,7 @@ export function Simulador() {
               onChangeText={(masked, unmasked) => handleInputChange('amount', unmasked)}
               mask={moneyMask}
             />
-            {errors.amount && <ErrorMessage>{errors.amount}</ErrorMessage>}
+            {errors?.amount && <ErrorMessage>{errors?.amount}</ErrorMessage>}
 
             <SimulatorTitle>Parcelas desejadas</SimulatorTitle>
             <StyledInput
@@ -251,9 +251,9 @@ export function Simulador() {
               value={simulatorData.installments}
               placeholder="Nº parcelas"
               keyboardType="numeric"
-              isInvalid={!!errors.installments}
+              isInvalid={!!errors?.installments}
             />
-            {errors.installments && <ErrorMessage>{errors.installments}</ErrorMessage>}
+            {errors?.installments && <ErrorMessage>{errors?.installments}</ErrorMessage>}
 
           </SimulatorContainer>
 

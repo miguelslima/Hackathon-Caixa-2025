@@ -19,7 +19,7 @@ import { InfoContainer } from "../Simulador/styles";
 import { Feather } from '@expo/vector-icons';
 import Header from "@/components/Header";
 
-interface Parcel {
+export interface Parcel {
   numero: number;
   valorAmortizacao: number;
   valorJuros: number;
@@ -210,7 +210,7 @@ export function ResultSimulator() {
                     <TableHeader>Saldo</TableHeader>
                   </TableRow>
                 )}
-                renderItem={({ item }) => (
+                renderItem={({ item }: { item: Parcel }) => (
                   <TableRow>
                     <TableCell>{item.numero}</TableCell>
                     <TableCell>{formatCurrency(item.valorPrestacao)}</TableCell>

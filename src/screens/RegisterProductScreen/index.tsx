@@ -6,7 +6,7 @@ import {
 import { useTheme } from 'styled-components/native';
 import { Feather } from '@expo/vector-icons'
 import * as yup from 'yup';
-import { BackButton, BackButtonTitle, Container, ErrorMessage, FormContainer, StyledInput, Title } from './styles';
+import { BackButton, BackButtonTitle, Container, ErrorMessage, FormContainer, StyledInput } from './styles';
 import { Button } from '@/components/Button';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
@@ -113,9 +113,9 @@ export default function RegisterProductScreen() {
       }
     } catch (error) {
       if (yup.ValidationError.isError(error)) {
-        const newErrors = {};
+        const newErrors: FormErrors = {};
         error.inner.forEach(err => {
-          newErrors[err.path] = err.message;
+          newErrors[err.path as keyof FormErrors] = err.message;
         });
         setErrors(newErrors);
         Toast.show({
@@ -155,27 +155,27 @@ export default function RegisterProductScreen() {
           placeholder="Nome do Produto"
           value={product.name}
           onChangeText={(text) => handleInputChange('name', text)}
-          isInvalid={!!errors.name}
+          isInvalid={!!errors?.name}
         />
-        {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+        {errors?.name && <ErrorMessage>{errors?.name}</ErrorMessage>}
 
         <StyledInput
           placeholder="Taxa de Juros Anual (%)"
           keyboardType="numeric"
           value={product.annualInterestRate}
           onChangeText={(text) => handleInputChange('annualInterestRate', text)}
-          isInvalid={!!errors.annualInterestRate}
+          isInvalid={!!errors?.annualInterestRate}
         />
-        {errors.annualInterestRate && <ErrorMessage>{errors.annualInterestRate}</ErrorMessage>}
+        {errors?.annualInterestRate && <ErrorMessage>{errors?.annualInterestRate}</ErrorMessage>}
 
         <StyledInput
           placeholder="Prazo Máximo (em meses)"
           keyboardType="numeric"
           value={product.maxTerm}
           onChangeText={(text) => handleInputChange('maxTerm', text)}
-          isInvalid={!!errors.maxTerm}
+          isInvalid={!!errors?.maxTerm}
         />
-        {errors.maxTerm && <ErrorMessage>{errors.maxTerm}</ErrorMessage>}
+        {errors?.maxTerm && <ErrorMessage>{errors?.maxTerm}</ErrorMessage>}
 
       </FormContainer>
       <View>

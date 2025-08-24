@@ -1,5 +1,6 @@
 import { FlatList } from "react-native";
 import styled from "styled-components/native";
+import { Parcel } from ".";
 
 export const Container = styled.View`
   flex: 1;
@@ -101,7 +102,7 @@ export const ModalTitle = styled.Text`
   color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
 `;
 
-export const ModalTable = styled(FlatList).attrs({
+export const ModalTable = styled(FlatList<Parcel>).attrs({
   contentContainerStyle: { paddingBottom: 20 },
 })`
   width: 100%;

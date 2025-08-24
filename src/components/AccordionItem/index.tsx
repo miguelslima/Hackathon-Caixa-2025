@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Collapsible from "react-native-collapsible";
-import styled from "styled-components/native";
-import { Ionicons } from '@expo/vector-icons'
 import { AccordionBody, AccordionContainer, AccordionHeader, AccordionTitle, ArrowIcon, BodyText, LinkButton, LinkText } from "./styles";
-import { Linking, Text, TouchableOpacity } from "react-native";
+import { Linking } from "react-native";
 
 interface AccordionItemProps {
   title: string;

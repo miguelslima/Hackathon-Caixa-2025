@@ -12,6 +12,7 @@ import { Button } from '@/components/Button';
 import { api } from '@/services/api';
 import { useTheme } from "styled-components/native";
 import Header from '@/components/Header';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 export interface Product {
   id: number;
@@ -21,7 +22,7 @@ export interface Product {
   prazoMaximoMeses: number;
 }
 
-export default function ProductsScreen({ navigation }) {
+export default function ProductsScreen({ navigation }: { navigation: NavigationProp<ParamListBase> }) {
   const { COLORS } = useTheme()
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
