@@ -72,8 +72,12 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [React Native Chart Kit](https://www.npmjs.com/package/react-native-chart-kit)
 - [Vercel](https://vercel.com/) (para hospedagem do db.JSON)
 
+<a id="como-usar"></a>
+
+## :fire: Como usar
+
 ```sh
-# Use a versão HTTPS para facilitar
+# 1. Use a versão HTTPS para facilitar
 git clone https://github.com/miguelslima/Hackathon-Caixa-2025.git
 
 # 2. Acesse a pasta do projeto

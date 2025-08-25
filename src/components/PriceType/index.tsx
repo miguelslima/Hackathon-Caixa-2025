@@ -7,6 +7,7 @@ interface ResultTipoProps {
   valorAmortizacao: number;
   valorJuros: number;
   valorPrestacao: number;
+  saldoDevedor: number;
 }
 [];
 
@@ -35,7 +36,7 @@ export function PriceType({ parcelas }: Props) {
             <Text style={{ borderTopWidth: 1 }} />
           </>
         )}
-        keyExtractor={(item) => item.numero}
+        keyExtractor={(item) => item.numero.toString()}
       />
     </Container>
   );
