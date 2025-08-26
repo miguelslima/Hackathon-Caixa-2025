@@ -5,6 +5,7 @@ import { Parcel } from ".";
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
+  
 `;
 
 export const ContentWrapper = styled.ScrollView`
@@ -115,17 +116,21 @@ export const TableRow = styled.View`
   border-bottom-width: 1px;
   border-bottom-color: #eee;
   padding-vertical: 6px;
+  
 `;
 
 export const TableHeader = styled.Text`
   font-weight: bold;
   font-size: 12px;
   color: #333;
+
 `;
 
 export const TableCell = styled.Text`
   font-size: 12px;
   color: #666;
+
+  
 `;
 
 export const FooterButtons = styled.View`

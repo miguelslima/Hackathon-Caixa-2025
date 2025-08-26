@@ -6,6 +6,7 @@ export const Container = styled.View`
   align-items: center;
 
   margin-block: 32px;
+
 `;
 
 export const ImageLogo = styled.Image`
@@ -15,7 +16,7 @@ export const ImageLogo = styled.Image`
 `;
 
 export const TitleHeader = styled.Text`
-  width: 250px;
+  width: 200px;
   color: #fff;
   font-size: 24px;
   text-align: center;

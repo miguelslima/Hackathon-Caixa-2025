@@ -48,7 +48,7 @@ export function AppRoutes() {
         component={ProductsScreen}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Feather name="file-plus" size={size} color={color} />
+            <Feather name="list" size={size} color={color} />
           ),
         }}
       />
@@ -57,7 +57,7 @@ export function AppRoutes() {
         component={Simulador}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Feather name="list" size={size} color={color} />
+            <Feather name="trending-up" size={size} color={color} />
           ),
           tabBarHideOnKeyboard: true,
         }}
