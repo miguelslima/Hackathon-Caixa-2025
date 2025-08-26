@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
 import { Keyboard, ScrollView, TouchableWithoutFeedback } from "react-native";
 
 import * as yup from "yup";
@@ -29,7 +29,7 @@ import { calculateAmortization } from "@/utils/calculateAmortization";
 import Header from "@/components/Header";
 
 interface Product {
-  id: number;
+  id: string;
   nome: string;
   taxaJurosAnual: number;
   prazoMaximoMeses: number;
@@ -42,6 +42,13 @@ interface SimulatorData {
   amount: string;
   installments: string;
 }
+
+interface FormErrors {
+  product?: string;
+  amount?: string;
+  installments?: string;
+}
+
 
 const validationSchema = yup.object().shape({
   product: yup.object().required('Selecione um produto.'),
@@ -62,6 +69,7 @@ const validationSchema = yup.object().shape({
 export function Simulador() {
   const { COLORS } = useTheme();
   const navigation = useNavigation();
+  const route = useRoute();
   const { user } = useAuth();
 
   const [simulatorData, setSimulatorData] = useState<SimulatorData>({
@@ -72,7 +80,7 @@ export function Simulador() {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
   const fetchProducts = async () => {
     try {
@@ -88,28 +96,29 @@ export function Simulador() {
   };
 
   const resetForm = useCallback(() => {
-    setSimulatorData({
-      product: null,
-      amount: '',
-      installments: '',
-    });
+    const { selectedProduct } = route.params as { selectedProduct?: Product } || {};
+
+    if (selectedProduct) {
+      setSimulatorData({
+        product: selectedProduct,
+        amount: '',
+        installments: '',
+      });
+    } else {
+      setSimulatorData({
+        product: products[0] || null,
+        amount: '',
+        installments: '',
+      });
+    }
     setErrors({});
-  }, [products]);
+  }, [products, route.params]);
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
-  useFocusEffect(
-    useCallback(() => {
-      resetForm()
-    }, [])
-  );
-
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', resetForm);
-    return unsubscribe;
-  }, [navigation, products]);
+  useFocusEffect(resetForm);
 
   const handleSimulator = async () => {
     setLoading(true);
@@ -174,19 +183,15 @@ export function Simulador() {
   };
 
   const handleInputChange = (field: 'amount' | 'installments', value: string) => {
-    if (field === 'amount') {
-      const sanitizedValue = value.replace(/[^0-9,.]/g, '').replace(',', '.');
-      setSimulatorData({ ...simulatorData, amount: sanitizedValue });
-    } else {
-      const sanitizedValue = value.replace(/[^0-9]/g, '');
-      setSimulatorData({ ...simulatorData, installments: sanitizedValue });
-    }
+    const sanitizedValue = value.replace(/[^0-9]/g, '');
+    setSimulatorData({ ...simulatorData, [field]: sanitizedValue });
   };
 
-  const handlePickerChange = (itemValue: number) => {
+  const handlePickerChange = (itemValue: string) => {
     const selectedProduct = products.find(p => p.id === itemValue);
-    setSimulatorData({ ...simulatorData, product: selectedProduct });
+    setSimulatorData({ ...simulatorData, product: selectedProduct || null });
   };
+
 
   const moneyMask = createNumberMask({
     prefix: ['R', '$', ' '],

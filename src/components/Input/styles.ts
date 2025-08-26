@@ -15,7 +15,7 @@ export const IconContainer = styled.View<Props>`
   align-items: center;
 
 
-  ${({ isFocused, theme }) => isFocused && css``}
+  ${({ isFocused }) => isFocused && css``}
 `;
 
 export const InputText = styled(TextInput).attrs<Props>(({ theme }) => ({

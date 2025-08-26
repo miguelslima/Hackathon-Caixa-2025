@@ -3,16 +3,16 @@ import {
   Alert,
   ActivityIndicator,
   FlatList,
-  Text,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons'
-import { Container, FlatListContainer, ProductDetails, ProductItemContainer, ProductName, SearchInput, SearchInputContainer } from './styles';
+import { Container, FlatListContainer, SearchInput, SearchInputContainer } from './styles';
 import { Button } from '@/components/Button';
 
 import { api } from '@/services/api';
 import { useTheme } from "styled-components/native";
 import Header from '@/components/Header';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import ProductCard from '@/components/ProductCard';
 
 export interface Product {
   id: number;
@@ -64,22 +64,12 @@ export default function ProductsScreen({ navigation }: { navigation: NavigationP
     }
   }, [search, products]);
 
+  const handleProductSelect = (product: Product) => {
+    navigation.navigate('Simulador', { selectedProduct: product });
+  };
+
   const renderProductItem = ({ item }: { item: Product }) => (
-    <ProductItemContainer>
-      <ProductName>{item.nome}</ProductName>
-      <ProductDetails>
-        <Text style={{ fontWeight: 'bold' }}>Taxa Anual: </Text>
-        {`${item.taxaJurosAnual === 'Variável' ? item.taxaJurosAnual : `${item.taxaJurosAnual}%`}`}
-      </ProductDetails>
-      <ProductDetails>
-        <Text style={{ fontWeight: 'bold' }}>Taxa Mensal: </Text>
-        {`${item.taxaMensal === 'Variável' ? item.taxaMensal : `${item.taxaMensal}%`}`}
-      </ProductDetails>
-      <ProductDetails>
-        <Text style={{ fontWeight: 'bold' }}>Prazo Máximo: </Text>
-        {item.prazoMaximoMeses} meses
-      </ProductDetails>
-    </ProductItemContainer>
+    <ProductCard product={item} onPress={() => handleProductSelect(item)} />
   );
 
   return (
