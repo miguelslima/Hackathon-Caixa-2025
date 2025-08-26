@@ -101,6 +101,7 @@ export const ModalTitle = styled.Text`
   font-size: 24px;
   font-weight: bold;
   color: ${({ theme }) => theme.COLORS.CAIXA_BLUE};
+  text-align: center;
 `;
 
 export const ModalTable = styled(FlatList<Parcel>).attrs({
@@ -124,13 +125,17 @@ export const TableHeader = styled.Text`
   font-size: 12px;
   color: #333;
 
+  flex: 1;  
+  text-align: start;   
+
 `;
 
 export const TableCell = styled.Text`
   font-size: 12px;
   color: #666;
 
-  
+  flex: 1;  
+  text-align: start; 
 `;
 
 export const FooterButtons = styled.View`

@@ -118,7 +118,7 @@ export function ResultSimulator() {
 
   const chartData = {
     labels: currentAmortization
-      .filter((_, index) => (index + 1) % 3 === 0)
+      .filter((_, index) => (index + 1) % 6 === 0)
       .map(p => p.numero.toString()),
     datasets: [{
       data: currentAmortization.map(p => p.saldoDevedor),

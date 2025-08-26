@@ -245,7 +245,7 @@ export function Simulador() {
             />
             {errors?.amount && <ErrorMessage>{errors?.amount}</ErrorMessage>}
 
-            <SimulatorTitle>Parcelas desejadas</SimulatorTitle>
+            <SimulatorTitle>Parcelas desejadas {simulatorData.product?.prazoMaximoMeses && `(${simulatorData.product?.prazoMaximoMeses} máximo)`}</SimulatorTitle>
             <StyledInput
               onChangeText={(value) => handleInputChange('installments', value)}
               value={simulatorData.installments}
